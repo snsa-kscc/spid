@@ -16,3 +16,9 @@ To learn more about Next.js, take a look at the following resources:
 - [Add a headless CMS to Next.js in 5 minutes](https://www.storyblok.com/tp/add-a-headless-cms-to-next-js-in-5-minutes) - Tutorial to get started with Next.js & Storyblok
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+## creds
+
+https://api.vercel.com/v1/integrations/deploy/prj_MYjGlvYcUgRTYzKN4Siy5OdFJlVv/QNx3RBude2
+
+https://spid.vercel.app/api/revalidate?secret=9LsVdWY9CrrBfqvJqmqAjwtt&slug=/en/blog/travelling-to-slovenia
