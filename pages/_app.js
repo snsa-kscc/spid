@@ -10,6 +10,8 @@ import PostsList from "../components/PostsList";
 import Teaser from "../components/Teaser";
 import Text from "../components/Text";
 
+const { MY_SECRET_TOKEN } = process.env;
+
 const components = {
   feature: Feature,
   "featured-posts": FeaturedPosts,
@@ -22,7 +24,7 @@ const components = {
 };
 
 storyblokInit({
-  accessToken: "9LsVdWY9CrrBfqvJqmqAjwtt",
+  accessToken: MY_SECRET_TOKEN,
   use: [apiPlugin],
   components,
 });
