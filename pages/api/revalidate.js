@@ -17,3 +17,5 @@ export default async function handler(req, res) {
     return res.status(500).send("Error revalidating");
   }
 }
+
+// https://spid.vercel.app/api/revalidate?secret=9LsVdWY9CrrBfqvJqmqAjwtt&slug=/

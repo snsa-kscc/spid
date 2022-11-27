@@ -1,9 +1,5 @@
 import Layout from "../components/Layout";
-import {
-  useStoryblokState,
-  getStoryblokApi,
-  StoryblokComponent,
-} from "@storyblok/react";
+import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
 
 export default function Page({ story, locale, locales, defaultLocale }) {
   story = useStoryblokState(story, {
@@ -18,12 +14,7 @@ export default function Page({ story, locale, locales, defaultLocale }) {
   );
 }
 
-export async function getStaticProps({
-  locale,
-  locales,
-  defaultLocale,
-  params,
-}) {
+export async function getStaticProps({ locale, locales, defaultLocale, params }) {
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
@@ -42,7 +33,7 @@ export async function getStaticProps({
       locales,
       defaultLocale,
     },
-    revalidate: 3600,
+    //revalidate: 3600,
   };
 }
 
