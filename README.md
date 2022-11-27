@@ -21,4 +21,4 @@ To learn more about Next.js, take a look at the following resources:
 
 https://api.vercel.com/v1/integrations/deploy/prj_MYjGlvYcUgRTYzKN4Siy5OdFJlVv/QNx3RBude2
 
-https://spid.vercel.app/api/revalidate?secret=9LsVdWY9CrrBfqvJqmqAjwtt&slug=/blog/traveling-to-slovenia
+https://spid.vercel.app/api/revalidate?secret=9LsVdWY9CrrBfqvJqmqAjwtt&slug=/
