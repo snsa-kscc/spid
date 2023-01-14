@@ -33,7 +33,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params })
       locales,
       defaultLocale,
     },
-    //revalidate: 3600,
+    revalidate: 10,
   };
 }
 
