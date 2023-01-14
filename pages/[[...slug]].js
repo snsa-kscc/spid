@@ -18,7 +18,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params })
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
-    version: "published",
+    version: "draft",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale,
   };
@@ -33,7 +33,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params })
       locales,
       defaultLocale,
     },
-    revalidate: 30,
+    revalidate: 10,
   };
 }
 
