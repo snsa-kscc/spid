@@ -18,7 +18,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params })
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
-    version: "draft",
+    version: "published",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale,
   };
@@ -38,9 +38,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params })
 }
 
 export async function getStaticPaths({ locales }) {
-  let { data } = await getStoryblokApi().get("cdn/links/", {
-    version: "published",
-  });
+  let { data } = await getStoryblokApi().get("cdn/links/");
 
   let paths = [];
   Object.keys(data.links).forEach((linkKey) => {
