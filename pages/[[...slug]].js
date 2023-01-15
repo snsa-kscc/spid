@@ -14,11 +14,11 @@ export default function Page({ story, locale, locales, defaultLocale }) {
   );
 }
 
-export async function getStaticProps({ locale, locales, defaultLocale, params }) {
+export async function getStaticProps({ locale, locales, defaultLocale, params, preview }) {
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
-    version: "published",
+    version: preview ? "draft" : "published",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale,
   };
