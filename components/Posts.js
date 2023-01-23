@@ -1,19 +1,13 @@
 import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
 
-const PostLists = ({ blok }) => {
+const Posts = ({ blok }) => {
   return (
-    <ul
-      {...storyblokEditable(blok)}
-      className="mx-auto w-full flex flex-col items-center"
-    >
+    <ul {...storyblokEditable(blok)} className="mx-auto w-full flex flex-col items-center">
       {blok.posts.map((post) => {
         const lang = post.lang === "default" ? "/en" : `/${post.lang}`;
         return (
-          <li
-            key={post.slug}
-            className="max-w-4xl w-full px-10 my-4 py-6 rounded-lg shadow-md bg-white"
-          >
+          <li key={post.slug} className="max-w-4xl w-full px-10 my-4 py-6 rounded-lg shadow-md bg-white">
             <div className="flex justify-between items-center">
               <span className="font-light text-gray-600">
                 {`
@@ -24,9 +18,7 @@ const PostLists = ({ blok }) => {
             </div>
             <div className="mt-2">
               <Link href={`${lang}/blog/${post.slug}`}>
-                <a className="text-2xl text-gray-700 font-bold hover:text-gray-600">
-                  {post.content.title}
-                </a>
+                <a className="text-2xl text-gray-700 font-bold hover:text-gray-600">{post.content.title}</a>
               </Link>
 
               <p className="mt-2 text-gray-600">{post.content.intro}</p>
@@ -43,4 +35,4 @@ const PostLists = ({ blok }) => {
   );
 };
 
-export default PostLists;
+export default Posts;

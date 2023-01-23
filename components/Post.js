@@ -1,7 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const BlogPost = ({ blok }) => {
+const Post = ({ blok }) => {
   const date = new Date(blok.date);
   const dateFormat = new Intl.DateTimeFormat("hr");
 
@@ -22,4 +22,4 @@ const BlogPost = ({ blok }) => {
   );
 };
 
-export default BlogPost;
+export default Post;
