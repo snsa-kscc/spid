@@ -3,7 +3,7 @@ import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storybl
 
 export default function Page({ story, locale, locales, defaultLocale }) {
   story = useStoryblokState(story, {
-    resolveRelations: ["featured-posts.posts", "selected-posts.posts"],
+    resolve_relations: ["featured-posts.posts", "posts.posts"],
     language: locale,
   });
 
@@ -19,7 +19,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params, p
 
   let sbParams = {
     version: preview ? "draft" : "published",
-    resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
+    resolve_relations: ["featured-posts.posts", "posts.posts"],
     language: locale,
   };
 
