@@ -1,7 +1,7 @@
 import "../styles/tailwind.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
-import Post from "../components/Post";
+import Article from "../components/Article";
 import Feature from "../components/Feature";
 import FeaturedPosts from "../components/FeaturedPosts";
 import Grid from "../components/Grid";
@@ -17,7 +17,7 @@ const components = {
   "featured-posts": FeaturedPosts,
   grid: Grid,
   page: Page,
-  post: Post,
+  post: Article,
   posts: Articles,
   teaser: Teaser,
   text: Text,

@@ -1,37 +1,37 @@
-import { storyblokEditable } from "@storyblok/react";
-import Link from "next/link";
+import ArticleTeaser from "./ArticleTeaser";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
+import { useState, useEffect } from "react";
 
 const Articles = ({ blok }) => {
-  return (
-    <ul {...storyblokEditable(blok)} className="mx-auto w-full flex flex-col items-center">
-      {blok.posts.map((post) => {
-        const lang = post.lang === "default" ? "/en" : `/${post.lang}`;
-        return (
-          <li key={post.slug} className="max-w-4xl w-full px-10 my-4 py-6 rounded-lg shadow-md bg-white">
-            <div className="flex justify-between items-center">
-              <span className="font-light text-gray-600">
-                {`
-                    ${new Date(post.created_at).getDay()}.
-                    ${new Date(post.created_at).getMonth()}.
-                    ${new Date(post.created_at).getFullYear()}`}
-              </span>
-            </div>
-            <div className="mt-2">
-              <Link href={`${lang}/blog/${post.slug}`}>
-                <a className="text-2xl text-gray-700 font-bold hover:text-gray-600">{post.content.title}</a>
-              </Link>
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    const getArticles = async () => {
+      const storyblokApi = getStoryblokApi();
+      const { data } = await storyblokApi.get(`cdn/stories`, {
+        starts_with: 'article/',
+        is_startpage: false
+      });
 
-              <p className="mt-2 text-gray-600">{post.content.intro}</p>
-            </div>
-            <div className="flex justify-between items-center mt-4">
-              <Link href={`${lang}/blog/${post.slug}`}>
-                <a className="text-blue-600 hover:underline">Read more</a>
-              </Link>
-            </div>
-          </li>
-        );
-      })}
-    </ul>
+      setArticles((prev) => data.stories.map((article) => {
+        article.content.slug = article.slug;
+        return article;
+      }));
+    };
+    getArticles();
+  }, []);
+
+  return (
+    <>
+      <h1 className="text-3xl">{blok.title}</h1>
+      <div
+        className="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3   lg:px-24 md:px-16"
+        {...storyblokEditable(blok)}
+      >
+        {articles[0] && articles.map((article) => (
+          <ArticleTeaser article={article.content} key={article.uuid} />
+        ))}
+      </div>
+    </>
   );
 };
 

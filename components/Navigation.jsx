@@ -66,7 +66,7 @@ const Navigation = ({ locale, locales, defaultLocale }) => {
                 </Link>
               </li>
               <li>
-                <Link href={`${defaultRoot}articles`}>
+                <Link href={`${defaultRoot}article`}>
                   <a className="block px-4 py-1 md:p-2 lg:px-8">Articles</a>
                 </Link>
               </li>
