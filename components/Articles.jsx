@@ -1,7 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
 
-const Posts = ({ blok }) => {
+const Articles = ({ blok }) => {
   return (
     <ul {...storyblokEditable(blok)} className="mx-auto w-full flex flex-col items-center">
       {blok.posts.map((post) => {
@@ -35,4 +35,4 @@ const Posts = ({ blok }) => {
   );
 };
 
-export default Posts;
+export default Articles;

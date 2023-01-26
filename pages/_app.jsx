@@ -6,7 +6,7 @@ import Feature from "../components/Feature";
 import FeaturedPosts from "../components/FeaturedPosts";
 import Grid from "../components/Grid";
 import Page from "../components/Page";
-import Posts from "../components/Posts";
+import Articles from "../components/Articles";
 import Teaser from "../components/Teaser";
 import Text from "../components/Text";
 
@@ -18,7 +18,7 @@ const components = {
   grid: Grid,
   page: Page,
   post: Post,
-  posts: Posts,
+  posts: Articles,
   teaser: Teaser,
   text: Text,
 };

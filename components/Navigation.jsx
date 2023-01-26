@@ -66,8 +66,8 @@ const Navigation = ({ locale, locales, defaultLocale }) => {
                 </Link>
               </li>
               <li>
-                <Link href={`${defaultRoot}blog`}>
-                  <a className="block px-4 py-1 md:p-2 lg:px-8">Blog</a>
+                <Link href={`${defaultRoot}articles`}>
+                  <a className="block px-4 py-1 md:p-2 lg:px-8">Articles</a>
                 </Link>
               </li>
               <li>
@@ -89,9 +89,8 @@ const Navigation = ({ locale, locales, defaultLocale }) => {
                       locale={loc}
                     >
                       <a
-                        className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${
-                          locale === loc ? "bg-black text-white" : ""
-                        }`}
+                        className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-black text-white" : ""
+                          }`}
                       >
                         {loc}
                       </a>
