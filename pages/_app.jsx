@@ -10,7 +10,7 @@ import Articles from "../components/Articles";
 import Teaser from "../components/Teaser";
 import Text from "../components/Text";
 
-const NEXT_PUBLIC_TOKEN = process.env.NEXT_PUBLIC_TOKEN;
+const { NEXT_PUBLIC_TOKEN } = process.env;
 
 const components = {
   feature: Feature,

@@ -2,6 +2,8 @@ import ArticleTeaser from "./ArticleTeaser";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 
+const { NEXT_PUBLIC_TOKEN } = process.env;
+
 // const storyblokApi = getStoryblokApi();
 
 const Articles = ({ blok }) => {
@@ -15,7 +17,7 @@ const Articles = ({ blok }) => {
       // });
 
       const response = await
-        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&token=${process.env.NEXT_PUBLIC_TOKEN}`);
+        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&token=${NEXT_PUBLIC_TOKEN}`);
       const data = await response.json();
 
       setArticles((prev) => data.stories.map((article) => {
