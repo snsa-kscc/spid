@@ -10,7 +10,7 @@ import Articles from "../components/Articles";
 import Teaser from "../components/Teaser";
 import Text from "../components/Text";
 
-const { MY_SECRET_TOKEN } = process.env;
+const MY_SECRET_TOKEN = process.env.MY_SECRET_TOKEN;
 
 const components = {
   feature: Feature,
