@@ -2,6 +2,8 @@ import ArticleTeaser from "./ArticleTeaser";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 
+const { MY_SECRET_TOKEN } = process.env;
+
 // const storyblokApi = getStoryblokApi();
 
 const Articles = ({ blok }) => {
