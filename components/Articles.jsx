@@ -2,14 +2,21 @@ import ArticleTeaser from "./ArticleTeaser";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 
+// const storyblokApi = getStoryblokApi();
+
 const Articles = ({ blok }) => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
+
     const getArticles = async () => {
-      const { data } = await getStoryblokApi().get(`cdn/stories`, {
-        starts_with: 'article',
-        is_startpage: false
-      });
+      // const { data } = await storyblokApi.get(`cdn/stories`, {
+      //   starts_with: 'article',
+      //   is_startpage: false,
+      // });
+
+      const response = await
+        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&token=${MY_SECRET_TOKEN}`);
+      const data = await response.json();
 
       setArticles((prev) => data.stories.map((article) => {
         article.content.slug = article.slug;
