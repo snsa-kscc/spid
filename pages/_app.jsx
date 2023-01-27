@@ -10,7 +10,7 @@ import Articles from "../components/Articles";
 import Teaser from "../components/Teaser";
 import Text from "../components/Text";
 
-const MY_SECRET_TOKEN = process.env.MY_SECRET_TOKEN;
+const NEXT_PUBLIC_TOKEN = process.env.NEXT_PUBLIC_TOKEN;
 
 const components = {
   feature: Feature,
@@ -24,7 +24,7 @@ const components = {
 };
 
 storyblokInit({
-  accessToken: MY_SECRET_TOKEN,
+  accessToken: NEXT_PUBLIC_TOKEN,
   use: [apiPlugin],
   components,
 });
