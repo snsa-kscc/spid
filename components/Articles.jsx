@@ -4,39 +4,43 @@ import { useState, useEffect } from "react";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
-// const storyblokApi = getStoryblokApi();
-
 const Articles = ({ blok }) => {
+  const perPage = 6;
   const [articles, setArticles] = useState([]);
+  const [articlesLoaded, setArticlesLoaded] = useState(0);
+  const [page, setPage] = useState(1);
   useEffect(() => {
 
     const getArticles = async () => {
-      // const { data } = await storyblokApi.get(`cdn/stories`, {
+      // const { data } = await getStoryblokApi().get(`cdn/stories`, {
       //   starts_with: 'article',
       //   is_startpage: false,
       // });
 
+      //TODO: finish the tutorial
+      //TODO: category selection
+
       //TODO: why storyblokApi doesn't work??
       //TODO: how to prerender this?
 
-      //TODO: finish the tutorial
-
-      //TODO: pagination
-
-      //TODO: category selection
       //TODO: wordpress import
 
       const response = await
-        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&token=${NEXT_PUBLIC_TOKEN}`);
+        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&page=${page}&per_page=${perPage}&token=${NEXT_PUBLIC_TOKEN}`);
       const data = await response.json();
 
-      setArticles((prev) => data.stories.map((article) => {
+      setArticles((prev) => [...prev, ...data.stories.map((article) => {
         article.content.slug = article.slug;
         return article;
-      }));
+      })]);
+      setArticlesLoaded(data.stories.length);
     };
     getArticles();
-  }, []);
+  }, [page]);
+
+  const loadMoreArticles = () => {
+    setPage(page + 1);
+  }
 
   return (
     <>
@@ -49,6 +53,7 @@ const Articles = ({ blok }) => {
           <ArticleTeaser article={article.content} key={article.uuid} />
         ))}
       </div>
+      {articlesLoaded === perPage ? <button onClick={loadMoreArticles}>load more</button> : null}
     </>
   );
 };
