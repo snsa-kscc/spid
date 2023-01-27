@@ -16,6 +16,16 @@ const Articles = ({ blok }) => {
       //   is_startpage: false,
       // });
 
+      //TODO: why storyblokApi doesn't work??
+      //TODO: how to prerender this?
+
+      //TODO: finish the tutorial
+
+      //TODO: pagination
+
+      //TODO: category selection
+      //TODO: wordpress import
+
       const response = await
         fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&token=${NEXT_PUBLIC_TOKEN}`);
       const data = await response.json();

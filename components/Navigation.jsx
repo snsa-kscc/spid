@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 const Navigation = ({ locale, locales, defaultLocale }) => {
   const router = useRouter();
 
+  //TODO: dynamic navigation
+
   const resolveHome = {
     en: "Home",
     es: "Página principal",
