@@ -9,4 +9,6 @@
 
 ### TODO: how to prerender this?
 
-### TODO: wordpress import
+### TODO: wordpress import egzekucija
+
+### TODO: dynamic navigation
