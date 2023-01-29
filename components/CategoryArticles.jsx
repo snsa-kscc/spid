@@ -38,7 +38,7 @@ const CategoryArticles = ({ story }) => {
         {...storyblokEditable(story.content)}
       >
         {articles[0] && articles.map((article) => (
-          <ArticleTeaser article={article.content} key={article.uuid} />
+          <ArticleTeaser article={article} key={article.uuid} />
         ))}
       </div>
       {articlesLoaded === perPage ? <button onClick={loadMoreArticles}>load more</button> : null}

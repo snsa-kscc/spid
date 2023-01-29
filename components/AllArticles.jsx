@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
 const AllArticles = ({ blok }) => {
-  console.log(blok);
   const perPage = 6;
   const [articles, setArticles] = useState([]);
   const [articlesLoaded, setArticlesLoaded] = useState(0);
@@ -39,7 +38,7 @@ const AllArticles = ({ blok }) => {
         {...storyblokEditable(blok)}
       >
         {articles[0] && articles.map((article) => (
-          <ArticleTeaser article={article.content} key={article.uuid} />
+          <ArticleTeaser article={article} key={article.uuid} />
         ))}
       </div>
       {articlesLoaded === perPage ? <button onClick={loadMoreArticles}>load more</button> : null}
