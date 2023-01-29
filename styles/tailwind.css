@@ -19,9 +19,8 @@ a[href^="https://www.youtube"]
 a[href^="https://www.youtube"]::after
 {
   position: absolute;
-  content: url(https://images.freeimages.com/fic/images/icons/2781/google_jfk_icons/128/youtube.png);
+  content: url(/play.png);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
 }
