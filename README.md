@@ -9,6 +9,12 @@
 
 ### TODO: how to prerender this?
 
-### TODO: wordpress import egzekucija
+---
+
+### TODO: wordpress import long_text
+
+### TODO: wordpress import titles fix
 
 ### TODO: dynamic navigation
+
+### TODO: locale setup
