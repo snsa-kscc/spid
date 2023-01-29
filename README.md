@@ -11,10 +11,10 @@
 
 ---
 
-### TODO: wordpress import long_text
-
-### TODO: wordpress import titles fix
-
 ### TODO: dynamic navigation
 
 ### TODO: locale setup
+
+https://api.vercel.com/v1/integrations/deploy/prj_MYjGlvYcUgRTYzKN4Siy5OdFJlVv/QNx3RBude2
+
+[![YouTube video](https://img.youtube.com/vi/HKQyrbXFAcc/maxresdefault.jpg)](https://www.youtube.com/watch?v=HKQyrbXFAcc)

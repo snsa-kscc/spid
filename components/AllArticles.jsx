@@ -14,7 +14,7 @@ const AllArticles = ({ blok }) => {
     const getArticles = async () => {
 
       const response = await
-        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&page=${page}&per_page=${perPage}&token=${NEXT_PUBLIC_TOKEN}`);
+        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&page=${page}&per_page=${perPage}&sort_by=first_published_at:desc&token=${NEXT_PUBLIC_TOKEN}`);
       const data = await response.json();
 
       setArticles((prev) => [...prev, ...data.stories.map((article) => {
