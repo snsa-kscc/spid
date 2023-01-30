@@ -2,9 +2,15 @@ import Layout from "../components/Layout";
 
 export default function Page404({ locale, locales, defaultLocale }) {
   return (
-    <Layout locale={locale} locales={locales} defaultLocale={defaultLocale}>
-      <h1>404 Not found</h1>
-    </Layout>
+    locale === defaultLocale ? (
+      <Layout locale={locale} locales={locales} defaultLocale={defaultLocale}>
+        <h1>404 Not found na hr</h1>
+      </Layout>
+    ) : (
+      <Layout locale={locale} locales={locales} defaultLocale={defaultLocale}>
+        <h1>404 Not found</h1>
+      </Layout>
+    )
   );
 }
 
