@@ -7,7 +7,7 @@ const Article = ({ blok, story }) => {
 
   const options = {
     markResolvers: {
-      [MARK_LINK]: node => {
+      [MARK_LINK]: (node, { _, href }) => {
         if (node.includes("youtube.com")) {
           const match = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/.exec(node)
           const videoId =
@@ -19,12 +19,19 @@ const Article = ({ blok, story }) => {
                   className="video"
                   title={`https://youtube.com/embed/${videoId}`}
                   src={`https://youtube.com/embed/${videoId}`}
+                  width="560"
+                  height="315"
                   allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                   frameBorder="0"
                   allowFullScreen
                 />
               </section>
             )
+          )
+        }
+        else {
+          return (
+            <a href={href}>{node}</a>
           )
         }
       },
@@ -41,10 +48,12 @@ const Article = ({ blok, story }) => {
         </div>
       </div>
       <div className="max-w-3xl mx-auto text-center pt-20 flex flex-col items-center">
-        <div className="leading-relaxed text-xl text-left text-gray-800 drop-cap">{render(blok.long_text)}</div>
+        <div className="leading-relaxed text-xl text-left text-gray-800 drop-cap">{render(blok.long_text, options)}</div>
       </div>
     </div>
   );
 };
 
 export default Article;
+
+
