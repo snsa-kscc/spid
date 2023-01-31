@@ -62,7 +62,7 @@ const Navigation = ({ locale, locales, blok }) => {
               {locales.map((loc) => {
                 return (
                   <li key={loc}>
-                    <Link href={{ pathname, query }} as={asPath} locale={loc}>
+                    <Link href={{ pathname: loc === 'en' ? '/' : pathname, query }} locale={loc}>
                       <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-black text-white" : ""}`}>
                         {loc.toUpperCase()}
                       </a>
