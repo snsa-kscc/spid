@@ -2,9 +2,9 @@ import Head from "../components/Head";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
-const Layout = ({ children, locale, locales, defaultLocale }) => (
+const Layout = ({ children, locale, locales, defaultLocale, story }) => (
   <div className="bg-gray-300">
-    <Head />
+    <Head title={story.name} />
     <Navigation
       locale={locale}
       locales={locales}
