@@ -1,19 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Navigation = ({ locale, locales, defaultLocale }) => {
-  const router = useRouter();
+const Navigation = ({ locale, locales, blok }) => {
+  const { pathname, query, asPath } = useRouter();
 
-  const resolveHome = {
-    en: "Home",
-    es: "Página principal",
-  };
-  const resolveAbout = {
-    en: "About",
-    es: "Acerca",
-  };
-
-  const defaultRoot = locale === defaultLocale ? "/" : `/${locale}/`;
   return (
     <header className="w-full bg-white">
       <nav className="" role="navigation">
@@ -58,41 +48,23 @@ const Navigation = ({ locale, locales, defaultLocale }) => {
           </div>
           <div className="w-full md:w-auto md:flex-grow md:flex md:items-center">
             <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 md:ml-auto lg:mr-8 md:border-0">
-              <li>
-                <Link href={`${defaultRoot}`}>
-                  <a className="block px-4 py-1 md:p-2 lg:px-8">
-                    {resolveHome[locale]}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href={`${defaultRoot}article`}>
-                  <a className="block px-4 py-1 md:p-2 lg:px-8">Articles</a>
-                </Link>
-              </li>
-              <li>
-                <Link href={`${defaultRoot}about`}>
-                  <a className="block px-4 py-1 md:p-2 lg:px-8">
-                    {resolveAbout[locale]}
-                  </a>
-                </Link>
-              </li>
+              {locale === 'hr' && blok.map((item) => (
+                <li key={item._uid}>
+                  <Link href={item.link.cached_url}>
+                    <a className="block px-4 py-1 md:p-2 lg:px-8">
+                      {item.name}
+                    </a>
+                  </Link>
+                </li>
+              ))}
             </ul>
             <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0">
               {locales.map((loc) => {
-                const { pathname, query, asPath } = router;
                 return (
                   <li key={loc}>
-                    <Link
-                      href={{ pathname, query }}
-                      as={asPath}
-                      locale={loc}
-                    >
-                      <a
-                        className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-black text-white" : ""
-                          }`}
-                      >
-                        {loc}
+                    <Link href={{ pathname, query }} as={asPath} locale={loc}>
+                      <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-black text-white" : ""}`}>
+                        {loc.toUpperCase()}
                       </a>
                     </Link>
                   </li>
