@@ -29,9 +29,9 @@ export default function SortedPeople() {
 
   const lastEntries = columns
     .slice(0, -1)
-    .map((column) => column[column.length - 1]);
+    .map((column) => column.at(-1));
 
-  const firstEntryLastColumn = columns[columns.length - 1][0];
+  const firstEntryLastColumn = columns.at(-1)[0];
 
   return (
     <>
