@@ -2,6 +2,41 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-style: normal;
+  src: url("Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  font-style: normal;
+  src: url("Inter-Bold.ttf");
+}
+
+@font-face {
+  font-family: "IntegralCF";
+  font-weight: 400;
+  font-style: normal;
+  src: url("IntegralCF-Regular.otf");
+}
+
+@font-face {
+  font-family: "IntegralCF";
+  font-weight: 600;
+  font-style: normal;
+  src: url("IntegralCF-DemiBold.otf");
+}
+
+@font-face {
+  font-family: "IntegralCF";
+  font-weight: 900;
+  font-style: normal;
+  src: url("IntegralCF-Heavy.otf");
+}
+
 iframe {
   margin: 0 auto;
 }
