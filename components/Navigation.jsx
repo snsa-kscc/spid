@@ -5,31 +5,23 @@ const Navigation = ({ locale, locales, blok }) => {
   const { pathname, query, asPath } = useRouter();
 
   return (
-    <header className="w-full">
+    <header className="w-full border-b-4 border-black">
       <nav className="" role="navigation">
-        <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
+        <div className="container mx-auto py-6 flex flex-wrap items-center md:flex-no-wrap">
           <div className="mr-4 md:mr-8">
             <Link href="/">
               <a>
-                <svg width="69" height="66" xmlns="http://www.w3.org/2000/svg">
-                  <g fill="none" fillRule="evenodd">
-                    <path fill="#FFF" d="M-149-98h1440v938H-149z" />
-                    <path
-                      d="M37.555 66c17.765 0 27.051-16.38 30.24-33.415C70.986 15.549 52.892 4.373 35.632.52 18.37-3.332 0 14.876 0 32.585 0 50.293 19.791 66 37.555 66z"
-                      fill="#000"
-                    />
-                    <path
-                      d="M46.366 42.146a5.55 5.55 0 01-1.948 2.043c-.86.557-1.811 1.068-2.898 1.3-1.087.279-2.265.511-3.487.511H22V20h18.207c.905 0 1.675.186 2.4.604a6.27 6.27 0 011.811 1.485 7.074 7.074 0 011.54 4.504c0 1.207-.317 2.368-.905 3.482a5.713 5.713 0 01-2.718 2.507c1.45.418 2.582 1.16 3.442 2.229.815 1.114 1.223 2.553 1.223 4.364 0 1.16-.226 2.136-.68 2.971h.046z"
-                      fill="#FFF"
-                    />
+                <svg width="89.66" height="71.2">
+                  <path d="M27.57,71.2l-10.69-16.99H0V0H89.66V54.21H37.78l-10.22,16.99ZM4.19,50.02h15l8.3,13.19,7.93-13.19h50.06V4.19H4.19V50.02Z" />
+                  <g>
+                    <path d="M9.92,22.73c1.11,.57,2.81,1.13,4.57,1.13,1.89,0,2.89-.78,2.89-1.97s-.86-1.78-3.05-2.57c-3.03-1.05-5-2.73-5-5.37,0-3.11,2.59-5.48,6.89-5.48,2.05,0,3.57,.43,4.65,.92l-.92,3.32c-.73-.35-2.03-.86-3.81-.86s-2.65,.81-2.65,1.76c0,1.16,1.03,1.67,3.38,2.57,3.21,1.19,4.73,2.86,4.73,5.43,0,3.05-2.35,5.64-7.35,5.64-2.08,0-4.13-.54-5.16-1.11l.84-3.4Z" />
+                    <path d="M24.37,9.01c1.27-.22,3.05-.38,5.56-.38s4.35,.49,5.56,1.46c1.16,.92,1.94,2.43,1.94,4.21s-.59,3.3-1.67,4.32c-1.4,1.32-3.48,1.92-5.92,1.92-.54,0-1.03-.03-1.4-.08v6.51h-4.08V9.01Zm4.08,8.27c.35,.08,.78,.11,1.38,.11,2.19,0,3.54-1.11,3.54-2.97,0-1.68-1.16-2.67-3.21-2.67-.84,0-1.4,.08-1.7,.16v5.37Z" />
+                    <path d="M44.2,8.77V26.97h-4.13V8.77h4.13Z" />
+                    <path d="M47.77,9.01c1.51-.24,3.48-.38,5.56-.38,3.46,0,5.7,.62,7.46,1.94,1.89,1.4,3.08,3.65,3.08,6.86,0,3.48-1.27,5.89-3.03,7.37-1.92,1.59-4.84,2.35-8.4,2.35-2.13,0-3.65-.13-4.67-.27V9.01Zm4.13,14.86c.35,.08,.92,.08,1.43,.08,3.73,.03,6.16-2.03,6.16-6.37,.03-3.78-2.19-5.78-5.73-5.78-.92,0-1.51,.08-1.86,.16v11.91Z" />
                   </g>
                 </svg>
               </a>
             </Link>
-          </div>
-          <div className="text-black">
-            <p className="text-lg">Storyblok</p>
-            <p>NextJS Demo</p>
           </div>
           <div className="ml-auto md:hidden">
             <button
@@ -47,7 +39,7 @@ const Navigation = ({ locale, locales, blok }) => {
             </button>
           </div>
           <div className="w-full md:w-auto md:flex-grow md:flex md:items-center">
-            <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:mr-4 md:ml-auto lg:mr-8 md:border-0">
+            <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0">
               {locale === 'hr' && blok.map((item) => (
                 <li key={item._uid}>
                   <Link href={item.link.cached_url}>
@@ -58,12 +50,12 @@ const Navigation = ({ locale, locales, blok }) => {
                 </li>
               ))}
             </ul>
-            <ul className="flex flex-col mt-4 -mx-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0">
+            <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0">
               {locales.map((loc) => {
                 return (
                   <li key={loc}>
                     <Link href={{ pathname: loc === 'en' ? '/' : pathname, query }} locale={loc}>
-                      <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-black text-white" : ""}`}>
+                      <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-[#B1D2F5] text-black" : ""}`}>
                         {loc.toUpperCase()}
                       </a>
                     </Link>

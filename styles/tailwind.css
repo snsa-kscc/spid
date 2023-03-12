@@ -86,3 +86,17 @@ a[href^="https://www.youtube"]::after
   inset: 0;
   transform: skewY(5deg);
 }
+
+.diagonal-purple {
+  position: relative;
+  isolation: isolate;
+}
+
+.diagonal-purple::after {
+  content: "";
+  background-image: linear-gradient(45deg, #5ba1e5, #8e8dd6);
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  transform: skewY(-5deg);
+}
