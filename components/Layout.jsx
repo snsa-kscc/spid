@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 const Layout = ({ children, locale, locales, defaultLocale, story, config }) => {
   const blok = config.content.header_menu
   return (
-    <div className="bg-gray-300">
+    <div className="bg-[#FBFBFB]">
       <Head title={story.name} />
       <Navigation
         blok={blok}

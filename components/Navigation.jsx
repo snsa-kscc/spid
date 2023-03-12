@@ -5,7 +5,7 @@ const Navigation = ({ locale, locales, blok }) => {
   const { pathname, query, asPath } = useRouter();
 
   return (
-    <header className="w-full bg-white">
+    <header className="w-full">
       <nav className="" role="navigation">
         <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
           <div className="mr-4 md:mr-8">

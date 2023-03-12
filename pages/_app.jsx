@@ -8,8 +8,8 @@ import Grid from "../components/Grid";
 import Page from "../components/Page";
 import AllArticles from "../components/AllArticles";
 import CategoryArticles from "../components/CategoryArticles";
-import Teaser from "../components/Teaser";
-import Text from "../components/Text";
+import Headline from "../components/Headline";
+import Hero from "../components/Hero";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -21,8 +21,8 @@ const components = {
   post: Article,
   posts: AllArticles,
   category: CategoryArticles,
-  teaser: Teaser,
-  text: Text,
+  headline: Headline,
+  hero: Hero,
 };
 
 storyblokInit({
