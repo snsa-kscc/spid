@@ -11,6 +11,13 @@
 
 @font-face {
   font-family: "Inter";
+  font-weight: 500;
+  font-style: normal;
+  src: url("Inter-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Inter";
   font-weight: 700;
   font-style: normal;
   src: url("Inter-Bold.ttf");
@@ -39,6 +46,10 @@
 
 iframe {
   margin: 0 auto;
+}
+
+.text-block p {
+  margin-bottom: 1em;
 }
 
 .bg-white-half {
