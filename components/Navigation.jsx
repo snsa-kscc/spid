@@ -43,7 +43,7 @@ const Navigation = ({ locale, locales, blok }) => {
           </div>
           <div className="relative w-full md:w-auto md:flex-grow">
             <div className={`absolute top-0 left-0 md:static md:flex md:items-center bg-[#FBFBFB]
-              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 ${open ? "translate-y-0" : "translate-y-[-120%]"} transition-all duration-1000 ease-in-out`}>
+              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 ${open ? "translate-y-0" : "translate-y-full"} transition-all duration-1000 ease-in-out`}>
               <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
                 {locale === 'hr' && blok.map((item) => (
                   <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">

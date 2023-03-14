@@ -68,6 +68,10 @@ iframe {
   transition: all 0.3s ease;
 }
 
+.chronology a {
+  text-decoration: underline;
+}
+
 a:hover::after {
   width: 100%;
 }
