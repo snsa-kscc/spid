@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import SortedPeople from "./SortedPeople";
 
 const Footer = ({ blok, locale }) => {
 
@@ -32,7 +31,7 @@ const Footer = ({ blok, locale }) => {
           </div>
           <div className="md:text-lg basis-1/4">
             {locale === 'hr' ? <h4 className="font-bold text-xl">Telefon</h4> : <h4 className="font-bold text-xl">Telephone</h4>}
-            <a href="tel:+385976362743">
+            <a href={`tel:${blok.phone.split(' ').join('')}`}>
               <p className=" mb-10">{blok.phone}</p>
             </a>
             {locale === 'hr' ? <h4 className="font-bold text-xl">Adresa</h4> : <h4 className="font-bold text-xl">Address</h4>}
@@ -53,13 +52,17 @@ const Footer = ({ blok, locale }) => {
           </div>
         </div>
         <div className="container mx-auto flex flex-row items-center justify-between gap-6 py-7 px-5">
-          <p className=" text-xs sm:text-sm">{blok.footerText}</p>
+          {locale === 'hr'
+            ? <p className=" text-xs sm:text-sm">{blok.footerText}</p>
+            : <p className=" text-xs sm:text-sm">SPID is supported by Croatian Audiovisual Centre and The Ministry of Culture and Media.</p>}
           <a href="https://www.facebook.com/spid.croatia" target='_blank'><img className='max-w-none' src="fb.png" alt="Facebook" /></a>
         </div>
       </footer>
-      <div className={`consent fixed bottom-12 left-52 z-50 text-5xl transition-all duration-700 ease-in-out ${showPopup ? '' : 'opacity-0 select-none pointer-events-none'}`}>
-        <p>{blok.cookieConsent}</p>
-        <button className="inline-block px-6 py-2.5 bg-blue-600 text-white text-lg leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" onClick={handleAccept}>Click me!</button>
+      <div className={`consent fixed bottom-12 left-1/2 w-11/12 lg:w-1/2 xl:w-2/5 flex justify-between gap-4 py-4 px-12 translate-x-[-50%] z-50 text-sm text-white bg-[#5BA1E5] outline outline-2 transition-all duration-700 ease-in-out ${showPopup
+        ? ''
+        : 'opacity-0 select-none pointer-events-none'}`}>
+        {locale === 'hr' ? <p>{blok.cookieConsent}</p> : <p>This site does not collect personal data of any kind.</p>}
+        {locale === 'hr' ? <button className="" onClick={handleAccept}>ZATVORI</button> : <button className="" onClick={handleAccept}>CLOSE</button>}
       </div>
     </>
   );
