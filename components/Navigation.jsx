@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Navigation = ({ locale, locales, blok }) => {
   const { pathname, query, asPath } = useRouter();
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="w-full border-b-4 border-black">
@@ -27,6 +29,7 @@ const Navigation = ({ locale, locales, blok }) => {
             <button
               className="flex items-center px-3 py-2 border rounded"
               type="button"
+              onClick={() => setOpen(!open)}
             >
               <svg
                 className="h-3 w-3"
