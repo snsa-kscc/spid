@@ -8,9 +8,9 @@ const Navigation = ({ locale, locales, blok }) => {
 
   return (
     <header className="w-full border-b-4 border-black">
-      <nav className="" role="navigation">
-        <div className="font-medium md:text-lg container mx-auto py-6 px-4 flex flex-wrap items-center md:flex-no-wrap">
-          <div className="mr-4 md:mr-8">
+      <nav className="md:container md:mx-auto py-6" role="navigation">
+        <div className="font-medium md:text-lg flex flex-wrap items-center md:flex-no-wrap relative isolate">
+          <div className="mr-4 ml-4 md:ml-0 md:mr-8 z-10">
             <Link href="/">
               <a>
                 <svg width="89.66" height="71.2">
@@ -25,7 +25,7 @@ const Navigation = ({ locale, locales, blok }) => {
               </a>
             </Link>
           </div>
-          <div className="ml-auto md:hidden">
+          <div className="ml-auto mr-4 md:hidden z-10">
             <button
               className="flex items-center px-3 py-2 border rounded"
               type="button"
@@ -41,31 +41,34 @@ const Navigation = ({ locale, locales, blok }) => {
               </svg>
             </button>
           </div>
-          <div className="w-full md:w-auto md:flex-grow md:flex md:items-center">
-            <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
-              {locale === 'hr' && blok.map((item) => (
-                <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">
-                  <Link href={item.link.cached_url}>
-                    <a className="block p-1">
-                      {item.name}
-                    </a>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0">
-              {locales.map((loc) => {
-                return (
-                  <li key={loc}>
-                    <Link href={{ pathname: loc === 'en' ? '/' : pathname, query }} locale={loc}>
-                      <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-[#B1D2F5] text-black" : ""}`}>
-                        {loc.toUpperCase()}
+          <div className="relative w-full md:w-auto md:flex-grow">
+            <div className={`absolute top-0 left-0 md:static md:flex md:items-center bg-[#FBFBFB]
+              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 ${open ? "translate-y-0" : "translate-y-[-120%]"} transition-all duration-1000 ease-in-out`}>
+              <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
+                {locale === 'hr' && blok.map((item) => (
+                  <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">
+                    <Link href={item.link.cached_url}>
+                      <a className="block p-1">
+                        {item.name}
                       </a>
                     </Link>
                   </li>
-                );
-              })}
-            </ul>
+                ))}
+              </ul>
+              <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0 px-2 md:px-0">
+                {locales.map((loc) => {
+                  return (
+                    <li key={loc}>
+                      <Link href={{ pathname: loc === 'en' ? '/' : pathname, query }} locale={loc}>
+                        <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-[#B1D2F5] text-black" : ""}`}>
+                          {loc.toUpperCase()}
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
