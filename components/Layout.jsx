@@ -3,18 +3,23 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 const Layout = ({ children, locale, locales, defaultLocale, story, config }) => {
-  const blok = config.content.header_menu
+  const header_menu = config.content.header_menu
+  const footer = config.content.footer
   return (
     <div className="bg-[#FBFBFB]">
       <Head title={story.name} />
       <Navigation
-        blok={blok}
+        blok={header_menu}
         locale={locale}
         locales={locales}
         defaultLocale={defaultLocale}
       />
       {children}
-      <Footer />
+      <Footer
+        blok={footer[0]}
+        locale={locale}
+        locales={locales}
+      />
     </div>
   )
 };

@@ -9,7 +9,7 @@ const Headline = ({ blok }) => {
           alt={blok.image.alt}
           className="md:w-2/3 ml-auto px-6"
         />
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-snug sm:leading-snug lg:leading-snug text-center p-6 md:p-10 lg:p-16">
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl leading-snug sm:leading-snug lg:leading-snug text-center p-6 md:p-10 lg:p-16">
           {blok.title}
         </h1>
       </div>

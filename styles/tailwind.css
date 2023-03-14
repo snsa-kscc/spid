@@ -52,6 +52,32 @@ iframe {
   margin-bottom: 1em;
 }
 
+.navigation-links a {
+  position: relative;
+}
+
+.navigation-links a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background: black;
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .navigation-links a::after {
+    display: none;
+  }
+}
+
 .bg-white-half {
   background: linear-gradient(to bottom, #fff 0%, #fff 50%, transparent 50%);
 }

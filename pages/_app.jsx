@@ -10,6 +10,8 @@ import AllArticles from "../components/AllArticles";
 import CategoryArticles from "../components/CategoryArticles";
 import Headline from "../components/Headline";
 import Hero from "../components/Hero";
+import LeftChrono from "../components/LeftChrono"
+import RightChrono from "../components/RightChrono"
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -23,6 +25,8 @@ const components = {
   category: CategoryArticles,
   headline: Headline,
   hero: Hero,
+  "left_chronology": LeftChrono,
+  "right_chronology": RightChrono
 };
 
 storyblokInit({

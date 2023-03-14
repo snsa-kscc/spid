@@ -7,7 +7,7 @@ const Navigation = ({ locale, locales, blok }) => {
   return (
     <header className="w-full border-b-4 border-black">
       <nav className="" role="navigation">
-        <div className="container mx-auto py-6 flex flex-wrap items-center md:flex-no-wrap">
+        <div className="font-medium md:text-lg container mx-auto py-6 px-4 flex flex-wrap items-center md:flex-no-wrap">
           <div className="mr-4 md:mr-8">
             <Link href="/">
               <a>
@@ -39,11 +39,11 @@ const Navigation = ({ locale, locales, blok }) => {
             </button>
           </div>
           <div className="w-full md:w-auto md:flex-grow md:flex md:items-center">
-            <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0">
+            <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
               {locale === 'hr' && blok.map((item) => (
-                <li key={item._uid}>
+                <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">
                   <Link href={item.link.cached_url}>
-                    <a className="block px-4 py-1 md:p-2 lg:px-8">
+                    <a className="block p-1">
                       {item.name}
                     </a>
                   </Link>
