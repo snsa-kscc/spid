@@ -2,8 +2,7 @@ import "../styles/tailwind.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 import Article from "../components/Article";
-import Feature from "../components/Feature";
-import FeaturedPosts from "../components/FeaturedPosts";
+import FeaturedArticles from "../components/FeaturedArticles";
 import Grid from "../components/Grid";
 import Page from "../components/Page";
 import AllArticles from "../components/AllArticles";
@@ -16,8 +15,7 @@ import RightChrono from "../components/RightChrono"
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
 const components = {
-  feature: Feature,
-  "featured-posts": FeaturedPosts,
+  "featured-articles": FeaturedArticles,
   grid: Grid,
   page: Page,
   post: Article,

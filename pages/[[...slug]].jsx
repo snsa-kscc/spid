@@ -9,7 +9,7 @@ export default function Page({ story, locale, locales, defaultLocale, config }) 
 
   return (
     <Layout locale={locale} locales={locales} defaultLocale={defaultLocale} story={story} config={config}>
-      <StoryblokComponent blok={story.content} story={story} />
+      <StoryblokComponent blok={story.content} story={story} locale={locale} />
     </Layout>
   );
 }

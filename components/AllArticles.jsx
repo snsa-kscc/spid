@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
-const AllArticles = ({ blok }) => {
-  const perPage = 6;
+const AllArticles = ({ blok, perPage = 6, isStandalone = true }) => {
+  //const perPage = 6;
   const [articles, setArticles] = useState([]);
   const [articlesLoaded, setArticlesLoaded] = useState(0);
   const [page, setPage] = useState(1);
@@ -32,16 +32,16 @@ const AllArticles = ({ blok }) => {
 
   return (
     <>
-      <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{blok.title}</h2>
+      {isStandalone && <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{blok.title}</h2>}
       <div
-        className="container grid grid-cols-spid gap-14 px-4 mx-auto 2xl:max-w-screen-xl"
+        className="container grid grid-cols-spid gap-14 px-4 mx-auto 2xl:max-w-screen-xl mb-16"
         {...storyblokEditable(blok)}
       >
         {articles[0] && articles.map((article) => (
           <ArticleTeaser article={article} key={article.uuid} />
         ))}
       </div>
-      {articlesLoaded === perPage
+      {articlesLoaded === perPage && isStandalone
         ? <div className="container mx-auto my-20 md:my-40 p-6 grid place-items-center">
           <button className="bg-[#B1D2F5] px-20 py-6 lg:px-24
             sm:py-8 border-4 border-black rounded-lg shadow-spid flex items-center gap-4 sm:gap-8" onClick={loadMoreArticles}>

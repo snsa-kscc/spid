@@ -5,11 +5,11 @@ export default function Page404({ locale, locales, defaultLocale, config }) {
   return (
     locale === defaultLocale ? (
       <Layout locale={locale} locales={locales} defaultLocale={defaultLocale} story={{ name: 'Nalaziš se u nepoznatom!' }} config={config}>
-        <h1>404 Not found na hr</h1>
+        <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">404 - stranica nije pronađena</h2>
       </Layout>
     ) : (
       <Layout locale={locale} locales={locales} defaultLocale={defaultLocale} story={{ name: 'You went into the unknown!' }} config={config}>
-        <h1>404 Not found</h1>
+        <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">404 - page not found</h2>
       </Layout >
     )
   );

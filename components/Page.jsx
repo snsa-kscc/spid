@@ -1,15 +1,15 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 
-const Page = ({ blok }) =>
-(
+const Page = ({ blok, locale }) => (
   <main {...storyblokEditable(blok)}>
     {blok.body
       ? blok.body.map((blok) => (
-        <StoryblokComponent blok={blok} key={blok._uid} />
+        <StoryblokComponent locale={locale} blok={blok} key={blok._uid} />
       ))
       : null}
   </main>
 );
+
 
 
 export default Page;
