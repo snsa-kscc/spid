@@ -1,3 +1,4 @@
+import { storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 
 const Footer = ({ blok, locale }) => {
@@ -21,7 +22,7 @@ const Footer = ({ blok, locale }) => {
 
   return (
     <>
-      <footer className="text-white bg-[#5BA1E5]">
+      <footer {...storyblokEditable(blok)} className="text-white bg-[#5BA1E5]">
         <div className="flex flex-col justify-between lg:flex-row gap-24 items-start lg:items-center container mx-auto py-36 md:py-60 px-5">
           <div className="font-mono">
             {locale === 'hr'

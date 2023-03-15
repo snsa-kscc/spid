@@ -40,10 +40,11 @@ const Article = ({ blok, story }) => {
 
   return (
     <div {...storyblokEditable(blok)}>
-      <div className="bg-white-half w-full">
+      <div className="w-full">
         <div className="max-w-3xl mx-auto text-center pt-20 flex flex-col items-center">
-          <h1 className="text-5xl font-bold font-serif text-primary tracking-wide">{story.name}</h1>
-          <p className="text-gray-500 text-lg max-w-lg">{dateFormat.format(date)}</p>
+          <h3 className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug sm:leading-snug md:leading-snug lg:leading-snug
+            my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.name}</h3>
+          <p className="text-lg max-w-lg">{dateFormat.format(date)}</p>
           <img className="w-full bg-gray-300 my-16" src={blok.image} alt={story.name} />
           <div className="my-10"> {render(blok.intro)}</div>
         </div>

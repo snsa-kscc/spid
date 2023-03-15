@@ -86,10 +86,6 @@ a:hover::after {
   }
 }
 
-/* .bg-white-half {
-  background: linear-gradient(to bottom, #fff 0%, #fff 50%, transparent 50%);
-} */
-
 .leading-relaxed p {
   margin-bottom: 1em;
 }
