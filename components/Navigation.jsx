@@ -10,7 +10,7 @@ const Navigation = ({ locale, locales, blok }) => {
     <header className="w-full border-b-4 border-black">
       <nav className="md:container md:mx-auto py-6" role="navigation">
         <div className="font-medium md:text-lg flex flex-wrap items-center md:flex-no-wrap relative isolate">
-          <div className="mr-4 ml-4 md:ml-0 md:mr-8 z-10">
+          <div className="mr-4 ml-4 md:mr-8 z-10">
             <Link href="/">
               <a>
                 <svg width="89.66" height="71.2">
@@ -43,7 +43,7 @@ const Navigation = ({ locale, locales, blok }) => {
           </div>
           <div className="relative w-full md:w-auto md:flex-grow">
             <div className={`absolute top-0 left-0 md:static md:flex md:items-center bg-[#FBFBFB]
-              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 ${open ? "translate-y-0" : "translate-y-full"} transition-all duration-1000 ease-in-out`}>
+              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 md:visible ${open ? "translate-y-0" : "translate-y-full invisible"} transition-all duration-1000 ease-in-out`}>
               <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
                 {locale === 'hr' && blok.map((item) => (
                   <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">

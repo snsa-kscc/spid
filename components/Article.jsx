@@ -44,7 +44,8 @@ const Article = ({ blok, story }) => {
         <div className="max-w-3xl mx-auto text-center pt-20 flex flex-col items-center">
           <h1 className="text-5xl font-bold font-serif text-primary tracking-wide">{story.name}</h1>
           <p className="text-gray-500 text-lg max-w-lg">{dateFormat.format(date)}</p>
-          <img className="w-full bg-gray-300 my-16" src={blok.image} />
+          <img className="w-full bg-gray-300 my-16" src={blok.image} alt={story.name} />
+          <div className="my-10"> {render(blok.intro)}</div>
         </div>
       </div>
       <div className="max-w-3xl mx-auto text-center pt-20 flex flex-col items-center">

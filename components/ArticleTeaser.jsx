@@ -2,23 +2,16 @@ import Link from "next/link";
 
 const ArticleTeaser = ({ article }) => {
   return (
-    <div className="column feature">
-      <div className="p-6">
-        <h1 className="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-3xl">
-          {article.name}
-        </h1>
-        <div className="mt-4">
-          <Link href={article.full_slug}>
-            <a
-              className="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-600"
-              title="read more"
-            >
-              Read More »
-            </a>
-          </Link>
-        </div>
-      </div>
-    </div>
+    <>
+      <Link href={article.full_slug}>
+        <a className="flex flex-col">
+          <img src={article.content.image} alt={article.name} className="aspect-[4/5] object-cover" />
+          <h5 className="font-mono text-2xl sm:text-3xl leading-relaxed mt-4">
+            {article.name}
+          </h5>
+        </a>
+      </Link>
+    </>
   )
 };
 

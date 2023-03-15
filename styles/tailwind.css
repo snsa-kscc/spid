@@ -48,6 +48,10 @@ iframe {
   margin: 0 auto;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .text-block p {
   margin-bottom: 1em;
 }
@@ -82,9 +86,9 @@ a:hover::after {
   }
 }
 
-.bg-white-half {
+/* .bg-white-half {
   background: linear-gradient(to bottom, #fff 0%, #fff 50%, transparent 50%);
-}
+} */
 
 .leading-relaxed p {
   margin-bottom: 1em;
