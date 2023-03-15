@@ -147,11 +147,11 @@ a[href^="https://www.youtube"]::after
 }
 
 @media (min-width: 768px) {
-  .grid-cols-spid a:first-child {
+  .featured .grid-cols-spid a:first-child {
     grid-column: 1 / span 2;
   }
 
-  .grid-cols-spid a:first-child img {
+  .featured .grid-cols-spid a:first-child img {
     aspect-ratio: 16/9;
     flex-grow: 1;
   }
