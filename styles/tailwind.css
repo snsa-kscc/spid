@@ -52,8 +52,42 @@ body {
   overflow-x: hidden;
 }
 
-.text-block p {
-  margin-bottom: 1em;
+blockquote {
+  font-weight: 700;
+  width: 70%;
+  margin: 2rem auto;
+}
+
+@media (min-width: 1024px) {
+  blockquote {
+    float: left;
+    width: 40%;
+    margin: 2rem 5rem;
+    margin-left: -6rem;
+  }
+}
+
+blockquote::before {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 25%;
+  border-bottom: 20px solid #b1d2f5;
+}
+
+a[href^="https://www.youtube"]
+{
+  position: relative;
+  display: block;
+}
+
+a[href^="https://www.youtube"]::after
+{
+  position: absolute;
+  content: url(/play.png);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .navigation-links a {
@@ -86,6 +120,19 @@ a:hover::after {
   }
 }
 
+.article a {
+  box-shadow: inset 0 -0.175em white, inset 0 -0.45em #b1d2f5;
+  transition: all 300ms ease-in-out;
+}
+
+.article a:hover {
+  box-shadow: inset 0 -0.175em white, inset 0 -0.45em #5ba1e5;
+}
+
+.text-block p {
+  margin-bottom: 1em;
+}
+
 .leading-relaxed p {
   margin-bottom: 1em;
 }
@@ -97,21 +144,6 @@ a:hover::after {
 .leading-relaxed ol,
 .leading-relaxed ul {
   list-style: revert;
-}
-
-a[href^="https://www.youtube"]
-{
-  position: relative;
-  display: block;
-}
-
-a[href^="https://www.youtube"]::after
-{
-  position: absolute;
-  content: url(/play.png);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .diagonal-blue {

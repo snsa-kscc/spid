@@ -39,18 +39,19 @@ const Article = ({ blok, story }) => {
   }
 
   return (
-    <div {...storyblokEditable(blok)}>
+    <div {...storyblokEditable(blok)} className="px-6 mb-48">
       <div className="w-full">
-        <div className="max-w-3xl mx-auto text-center pt-20 flex flex-col items-center">
-          <h3 className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug sm:leading-snug md:leading-snug lg:leading-snug
-            my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.name}</h3>
-          <p className="text-lg max-w-lg">{dateFormat.format(date)}</p>
-          <img className="w-full bg-gray-300 my-16" src={blok.image} alt={story.name} />
-          <div className="my-10"> {render(blok.intro)}</div>
+        <div className="mx-auto max-w-7xl flex flex-col gap-8 mt-16">
+          <h3 className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug sm:leading-snug md:leading-snug lg:leading-snug w-3/5">{story.name}</h3>
+          <p className="font-medium text-lg text-[#5BA1E5]">{dateFormat.format(date)}</p>
+          <div className="flex items-end flex-wrap gap-12">
+            <div className="font-medium italic text-xl md:text-2xl basis-80 grow"> {render(blok.intro)}</div>
+            <div className="grow basis-80"><img src={blok.image} alt={story.name} /></div>
+          </div>
         </div>
       </div>
-      <div className="max-w-3xl mx-auto text-center pt-20 flex flex-col items-center">
-        <div className="leading-relaxed text-xl text-left text-gray-800 drop-cap">{render(blok.long_text, options)}</div>
+      <div className="max-w-3xl mx-auto text-center pt-20">
+        <div className="article leading-relaxed text-xl text-left text-gray-800">{render(blok.long_text, options)}</div>
       </div>
     </div>
   );

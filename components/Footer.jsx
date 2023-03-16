@@ -60,7 +60,7 @@ const Footer = ({ blok, locale }) => {
           {locale === 'hr'
             ? <p className=" text-xs sm:text-sm">{blok.footerText}</p>
             : <p className=" text-xs sm:text-sm">SPID is supported by Croatian Audiovisual Centre and The Ministry of Culture and Media.</p>}
-          <a href="https://www.facebook.com/spid.croatia" target='_blank'><img className='max-w-none' src="fb.png" alt="Facebook" /></a>
+          <a href="https://www.facebook.com/spid.croatia" target='_blank'><img className='max-w-none' src="/fb.png" alt="Facebook" /></a>
         </div>
       </footer>
       <div className={`consent fixed bottom-12 left-1/2 w-11/12 lg:w-1/2 xl:w-2/5 flex justify-between

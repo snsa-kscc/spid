@@ -34,7 +34,7 @@ const AllArticles = ({ blok, perPage = 6, isStandalone = true }) => {
     <>
       {isStandalone && <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{blok.title}</h2>}
       <div
-        className="container grid grid-cols-spid gap-14 px-4 mx-auto 2xl:max-w-screen-xl mb-16"
+        className="container grid grid-cols-spid gap-14 px-4 mx-auto 2xl:max-w-screen-xl mb-24"
         {...storyblokEditable(blok)}
       >
         {articles[0] && articles.map((article) => (
