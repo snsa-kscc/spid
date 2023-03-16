@@ -5,7 +5,7 @@ const RightChrono = ({ blok }) => {
   if (blok.year) {
     return (
       <>
-        <div className="order-2 md:order-none p-16 md:p-20 lg:p-32 xl:p-40 basis-1/2">
+        <div className="order-2 md:order-none p-16 md:p-20 lg:p-32 xl:p-40 basis-1/2 text-lg">
           {render(blok.description)}
         </div>
         <div className="order-1 basis-1/2 grid place-items-center bg-[#E2E2E2] p-16 outline">
