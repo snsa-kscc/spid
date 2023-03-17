@@ -21,7 +21,7 @@ const Headline = ({ blok }) => {
   else if (blok.layout === 'big_typo') {
     return (
       <div {...storyblokEditable(blok)} className="">
-        <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{blok.title}</h2>
+        <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto px-4">{blok.title}</h2>
       </div>
     )
   }
@@ -29,7 +29,8 @@ const Headline = ({ blok }) => {
   else {
     return (
       <div {...storyblokEditable(blok)} className="">
-        <h2 className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug sm:leading-snug md:leading-snug lg:leading-snug my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{blok.title}</h2>
+        <h2 className="font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug sm:leading-snug md:leading-snug lg:leading-snug
+          my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto px-4">{blok.title}</h2>
       </div>
     )
   }

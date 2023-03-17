@@ -11,6 +11,7 @@ import Headline from "../components/Headline";
 import Hero from "../components/Hero";
 import LeftChrono from "../components/LeftChrono"
 import RightChrono from "../components/RightChrono"
+import Text from "../components/Text";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -24,7 +25,8 @@ const components = {
   headline: Headline,
   hero: Hero,
   "left_chronology": LeftChrono,
-  "right_chronology": RightChrono
+  "right_chronology": RightChrono,
+  text: Text
 };
 
 storyblokInit({

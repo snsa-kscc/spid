@@ -184,3 +184,8 @@ a:hover::after {
     flex-grow: 1;
   }
 }
+
+.article b {
+  display: inline-block;
+  padding: 1em 0;
+}
