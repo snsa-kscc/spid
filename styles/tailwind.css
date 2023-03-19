@@ -189,3 +189,12 @@ a:hover::after {
   display: inline-block;
   padding: 1em 0;
 }
+
+.steps {
+  counter-reset: heading;
+}
+
+.step::before {
+  content: counter(heading) ". ";
+  counter-increment: heading;
+}
