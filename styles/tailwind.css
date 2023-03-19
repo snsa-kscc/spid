@@ -32,6 +32,13 @@
 
 @font-face {
   font-family: "IntegralCF";
+  font-weight: 500;
+  font-style: normal;
+  src: url("IntegralCF-Medium.otf");
+}
+
+@font-face {
+  font-family: "IntegralCF";
   font-weight: 600;
   font-style: normal;
   src: url("IntegralCF-DemiBold.otf");
