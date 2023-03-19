@@ -58,9 +58,10 @@ const Navigation = ({ locale, locales, blok }) => {
               <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0 px-2 md:px-0">
                 {locales.map((loc) => {
                   return (
-                    <li key={loc}>
+                    <li key={loc} className="px-0.5">
                       <Link href={{ pathname: loc === 'en' ? '/' : pathname, query }} locale={loc}>
-                        <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 ${locale === loc ? "bg-[#B1D2F5] text-black" : ""}`}>
+                        <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 transition-all duration-500 ease-in-out ${locale === loc
+                          ? "bg-[#B1D2F5] text-black hover:bg-[#5BA1E5]" : "hover:bg-[#E2E2E2]"}`}>
                           {loc.toUpperCase()}
                         </a>
                       </Link>

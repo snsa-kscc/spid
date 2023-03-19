@@ -9,7 +9,7 @@ const Bullets = ({ blok, activitiesArray, layout }) => {
         </div>
       </div>
       {blok.description && <p className="font-mono text-xl sm:text-3xl lg:text-4xl leading-normal sm:leading-normal lg:leading-normal text-right
-        my-20 max-w-4xl mx-auto md:ml-[40%]">{blok.description}</p>}
+        mb-20 max-w-4xl mx-auto md:ml-[40%]">{blok.description}</p>}
       {
         activitiesArray.map((activity, index) => {
           return (
@@ -40,9 +40,9 @@ const KeyPoints = ({ blok }) => {
             <p className="font-mono text-xl sm:text-2xl text-center">{blok.subHead}</p>
           </div>
           <p className="font-mono text-xl sm:text-3xl lg:text-4xl leading-normal sm:leading-normal lg:leading-normal text-right
-            my-20 max-w-4xl mx-auto md:ml-[40%]">{blok.description}</p>
+            mb-20 max-w-4xl mx-auto md:ml-[40%]">{blok.description}</p>
         </div>
-        <div className="diagonal-blue my-40 py-40">
+        <div className="diagonal-blue my-24 sm:my-32 md:my-40 xl:my-44 py-24 sm:py-32 md:py-40 xl:py-44">
           <div className="container mx-auto px-4 font-mono text-xl sm:text-2xl md:text-4xl lg:text-5xl">
             {pairs.map((pair, index) => {
               return (

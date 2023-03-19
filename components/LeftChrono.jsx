@@ -10,7 +10,7 @@ const LeftChrono = ({ blok }) => {
             <p className="font-mono text-xl sm:text-3xl text-white">{blok.year}</p>
           </div>
         </div>
-        <div className="p-16 md:p-20 lg:p-32 xl:p-40 basis-1/2 outline text-lg">
+        <div className="p-16 md:p-20 lg:p-32 xl:p-40 basis-1/2 outline sm:text-lg">
           {render(blok.description)}
         </div>
       </>
