@@ -12,11 +12,12 @@ import Hero from "../components/Hero";
 import LeftChrono from "../components/LeftChrono"
 import RightChrono from "../components/RightChrono"
 import Text from "../components/Text";
+import KeyPoints from "../components/KeyPoints";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
 const components = {
-  "featured-articles": FeaturedArticles,
+  featured_articles: FeaturedArticles,
   grid: Grid,
   page: Page,
   post: Article,
@@ -24,9 +25,10 @@ const components = {
   category: CategoryArticles,
   headline: Headline,
   hero: Hero,
-  "left_chronology": LeftChrono,
-  "right_chronology": RightChrono,
-  text: Text
+  left_chronology: LeftChrono,
+  right_chronology: RightChrono,
+  text: Text,
+  key_points: KeyPoints
 };
 
 storyblokInit({
