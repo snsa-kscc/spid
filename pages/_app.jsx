@@ -13,6 +13,9 @@ import LeftChrono from "../components/LeftChrono"
 import RightChrono from "../components/RightChrono"
 import Text from "../components/Text";
 import KeyPoints from "../components/KeyPoints";
+import Register from "../components/Register";
+import Requirements from "../components/Requirements";
+import People from "../components/People"
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -28,7 +31,10 @@ const components = {
   left_chronology: LeftChrono,
   right_chronology: RightChrono,
   text: Text,
-  key_points: KeyPoints
+  key_points: KeyPoints,
+  register: Register,
+  requirements: Requirements,
+  people: People
 };
 
 storyblokInit({

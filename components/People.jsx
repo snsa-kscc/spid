@@ -1,13 +1,15 @@
-const people =
+import { storyblokEditable } from "@storyblok/react";
+
+const peopleArray =
   "Vid Adam, Hribar; Jasna Jelena, Andres; Sandra, Antolić; Nataša, Antulov; Sandra, Babić; Siniša, Bahun; Nina, Bajsić; Pavlica, Bajsić; Igor, Baksa; Vedrana, Balen Spinčić; Ana, Ban; Hrvoje, Barbir; Nikolina, Bogdanović; Luka, Bosanac; Mile, Božičević; Nataša, Buljan; Karla, Crnčević; Nikolina, Čuljak; Mislav, Donaj; Ana, Đokić; Goran, Ferčec; Nina, Gojić; Jelena, Gotovac; Katja, Grcić; Boris, Homovec; Nina, Horvat; Ivana, Đula; Anita, Čeko; Marjan, Alčevski; Patrik, Gregurec";
 
-const names = people
+const names = peopleArray
   .split(";")
   .map((person) => person.split(","))
   .sort((a, b) => a[1].localeCompare(b[1], "hr"))
   .map((person) => `${person[0].trim()}, ${person[1].trim()}`);
 
-function Column({ entries }) {
+const Column = ({ entries }) => {
   return (
     <div style={{ width: "25%", textAlign: "center" }}>
       {entries.map((entry) => (
@@ -19,7 +21,7 @@ function Column({ entries }) {
   );
 }
 
-export default function SortedPeople() {
+const People = ({ blok }) => {
 
   const entriesPerColumn = 11;
   let columns = [];
@@ -34,7 +36,7 @@ export default function SortedPeople() {
   const firstEntryLastColumn = columns.at(-1)[0];
 
   return (
-    <>
+    <div {...storyblokEditable(blok)}>
       <div
         style={{
           display: "flex",
@@ -55,6 +57,8 @@ export default function SortedPeople() {
       </ul>
       <h3>First Entry from the Last Column</h3>
       <p>{firstEntryLastColumn.split(", ")[1][0].toUpperCase()}</p>
-    </>
+    </div>
   );
 }
+
+export default People
