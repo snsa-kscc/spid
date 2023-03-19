@@ -16,6 +16,7 @@ import KeyPoints from "../components/KeyPoints";
 import Register from "../components/Register";
 import Requirements from "../components/Requirements";
 import People from "../components/People"
+import Organization from "../components/Organization";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -34,7 +35,8 @@ const components = {
   key_points: KeyPoints,
   register: Register,
   requirements: Requirements,
-  people: People
+  people: People,
+  organization: Organization
 };
 
 storyblokInit({

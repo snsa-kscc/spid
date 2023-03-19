@@ -6,6 +6,7 @@ const Register = ({ blok }) => {
   const stepsArray = blok.steps.split(",").map(step => step.trim())
   return (
     <div {...storyblokEditable(blok)} className="my-40 container mx-auto">
+      <h2>{blok.headline}</h2>
       <div className="steps">
         {stepsArray.map((item, idx) => {
           return <div key={idx} className="step">{item}</div>
