@@ -12,9 +12,13 @@
 ### TODO:
 
 accordion styles
+
 people
+
 clanstvo section jump
+
 article category
+
 category selection
 
 ---
