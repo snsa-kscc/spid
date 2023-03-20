@@ -9,6 +9,14 @@
 
 ### TODO: how to prerender this?
 
+### TODO:
+
+accordion styles
+people
+clanstvo section jump
+article category
+category selection
+
 ---
 
 https://api.vercel.com/v1/integrations/deploy/prj_MYjGlvYcUgRTYzKN4Siy5OdFJlVv/QNx3RBude2
