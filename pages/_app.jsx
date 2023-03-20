@@ -17,6 +17,7 @@ import Register from "../components/Register";
 import Requirements from "../components/Requirements";
 import People from "../components/People"
 import Organization from "../components/Organization";
+import Accordion from "../components/Accordion";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -36,7 +37,8 @@ const components = {
   register: Register,
   requirements: Requirements,
   people: People,
-  organization: Organization
+  organization: Organization,
+  accordion: Accordion
 };
 
 storyblokInit({
