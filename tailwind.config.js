@@ -11,6 +11,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         spid: "repeat(auto-fit, minmax(20rem, 1fr))",
+        organization: "repeat(auto-fit, minmax(15rem, 1fr))",
       },
     },
   },
