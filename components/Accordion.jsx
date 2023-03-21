@@ -29,16 +29,22 @@ const Accordion = ({ blok }) => {
         ? "opacity-100 [transition:height_0.3s,_opacity_0.3s_0.3s]"
         : "opacity-0 [transition:opacity_0.3s,_height_0.3s_0.3s]"}
         style={{ height: toggle ? `${height}` : "0px" }}>
-        <div>
-          {blok.subtitle1 && <div className="p-4">{blok.subtitle1}</div>}
-          <div>{blok.loop1.map(item => (
-            <a href={item.asset.filename || item.asset.url} key={item._uid} className="block">{item.asset.name || item.asset.title}</a>)
+        <div className="py-6">
+          {blok.subtitle1 && <div className="font-mono sm:text-lg lg:text-xl leading-normal sm:leading-normal lg:leading-normal px-4 pb-4">{blok.subtitle1}</div>}
+          <div className="px-2 pb-4">{blok.loop1.map(item => (
+            <div key={item._uid} className="pb-4 md:pb-3">
+              <a href={item.asset.filename || item.asset.url}
+                className="inline-block transition-all duration-300 hover:text-slate-500">{item.asset.name || item.asset.title}</a>
+            </div>)
           )}</div>
         </div>
-        {blok.loop2 && <div className="">
-          <div className="p-4">{blok.subtitle2}</div>
-          <div>{blok.loop2.map(item => (
-            <a href={item.asset.filename || item.asset.url} key={item._uid} className="block">{item.asset.name || item.asset.title}</a>)
+        {blok.loop2 && <div className="pb-10">
+          <div className="font-mono sm:text-lg lg:text-xl leading-normal sm:leading-normal lg:leading-normal p-4">{blok.subtitle2}</div>
+          <div className="px-2 pb-4">{blok.loop2.map(item => (
+            <div key={item._uid} className="pb-4 md:pb-3">
+              <a href={item.asset.filename || item.asset.url}
+                className="inline-block transition-all duration-300 hover:text-slate-500">{item.asset.name || item.asset.title}</a>
+            </div>)
           )}</div>
         </div>}
       </div>
