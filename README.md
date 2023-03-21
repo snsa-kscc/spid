@@ -11,8 +11,6 @@
 
 ### TODO:
 
-accordion styles
-
 people
 
 clanstvo section jump
