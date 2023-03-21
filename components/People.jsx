@@ -16,63 +16,63 @@ const People = ({ blok }) => {
 
   const entriesPerColumn = 11;
 
-  const namesR = blok.regularMembers
+  const regularNames = blok.regularMembers
     .split(";")
     .map((person) => person.split(","))
     .sort((a, b) => a[1].localeCompare(b[1], "hr"))
     .map((person) => `${person[0].trim()}, ${person[1].trim()}`);
 
-  let columnsR = [];
-  for (let i = 0; i < namesR.length; i += entriesPerColumn) {
-    columnsR.push(namesR.slice(i, i + entriesPerColumn));
+  let regularColumns = [];
+  for (let i = 0; i < regularNames.length; i += entriesPerColumn) {
+    regularColumns.push(regularNames.slice(i, i + entriesPerColumn));
   }
 
-  const totalPeopleR = namesR.length
+  const totalRegularPeople = regularNames.length
 
-  const lastEntriesR = columnsR
+  const lastRegularEntries = regularColumns
     .map((column) => column.at(-1));
 
-  const firstEntriesR = columnsR
+  const firstRegularEntries = regularColumns
     .map((column) => column.at(0));
 
-  const firstLetterOfLastEntriesR = lastEntriesR.map(entry => {
+  const firstLetterOfLastRegularEntries = lastRegularEntries.map(entry => {
     return entry.split(", ")[1][0].toUpperCase()
   })
 
-  const firstLetterOfFirstEntriesR = firstEntriesR.map(entry => {
+  const firstLetterOfFirstRegularEntries = firstRegularEntries.map(entry => {
     return entry.split(", ")[1][0].toUpperCase()
   })
 
-  const letterPairsR = firstLetterOfFirstEntriesR.map((element, index) => [element, firstLetterOfLastEntriesR[index]]);
+  const letterRegularPairs = firstLetterOfFirstRegularEntries.map((element, index) => [element, firstLetterOfLastRegularEntries[index]]);
 
-  const namesL = blok.associatedMembers
+  const AssociatedNames = blok.associatedMembers
     .split(";")
     .map((person) => person.split(","))
     .sort((a, b) => a[1].localeCompare(b[1], "hr"))
     .map((person) => `${person[0].trim()}, ${person[1].trim()}`);
 
-  let columnsL = [];
-  for (let i = 0; i < namesL.length; i += entriesPerColumn) {
-    columnsL.push(namesL.slice(i, i + entriesPerColumn));
+  let associatedColumns = [];
+  for (let i = 0; i < AssociatedNames.length; i += entriesPerColumn) {
+    associatedColumns.push(AssociatedNames.slice(i, i + entriesPerColumn));
   }
 
-  const totalPeopleL = namesL.length
+  const totalAssociatedPeople = AssociatedNames.length
 
-  const lastEntriesL = columnsL
+  const lastAssociatedEntries = associatedColumns
     .map((column) => column.at(-1));
 
-  const firstEntriesL = columnsL
+  const firstAssociaetdEntries = associatedColumns
     .map((column) => column.at(0));
 
-  const firstLetterOfLastEntriesL = lastEntriesL.map(entry => {
+  const firstLetterOfLastAssociatedEntries = lastAssociatedEntries.map(entry => {
     return entry.split(", ")[1][0].toUpperCase()
   })
 
-  const firstLetterOfFirstEntriesL = firstEntriesL.map(entry => {
+  const firstLetterOfFirstAssociatedEntries = firstAssociaetdEntries.map(entry => {
     return entry.split(", ")[1][0].toUpperCase()
   })
 
-  const letterPairsL = firstLetterOfFirstEntriesL.map((element, index) => [element, firstLetterOfLastEntriesL[index]]);
+  const letterAssociatedPairs = firstLetterOfFirstAssociatedEntries.map((element, index) => [element, firstLetterOfLastAssociatedEntries[index]]);
 
   // const letterPairs = firstLetterOfLastEntries.reduce((acc, letter, index, array) => {
   //   const isFirstLetter = index === 0;
@@ -122,17 +122,17 @@ const People = ({ blok }) => {
             justifyContent: "space-between"
           }}
         >
-          {columnsR.map((column, index) => (
+          {regularColumns.map((column, index) => (
             <Column entries={column} key={index} />
           ))}
         </div>
         <p>Ranges</p>
         <ul>
-          {letterPairsR.map((pair, index) => (
+          {letterRegularPairs.map((pair, index) => (
             <li key={index}>od {pair[0]} do {pair[1]}</li>
           ))}
         </ul>
-        <p>total {totalPeopleR}</p>
+        <p>total {totalRegularPeople}</p>
       </div>
       <div>
         <div
@@ -143,17 +143,17 @@ const People = ({ blok }) => {
             justifyContent: "space-between"
           }}
         >
-          {columnsL.map((column, index) => (
+          {associatedColumns.map((column, index) => (
             <Column entries={column} key={index} />
           ))}
         </div>
         <p>Ranges</p>
         <ul>
-          {letterPairsL.map((pair, index) => (
+          {letterAssociatedPairs.map((pair, index) => (
             <li key={index}>od {pair[0]} do {pair[1]}</li>
           ))}
         </ul>
-        <p>total {totalPeopleL}</p>
+        <p>total {totalAssociatedPeople}</p>
       </div>
     </div>
 
