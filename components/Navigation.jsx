@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const Navigation = ({ locale, locales, blok }) => {
-  const { pathname, query, asPath } = useRouter();
+  const { pathname, query } = useRouter();
   const [open, setOpen] = useState(false)
 
   return (

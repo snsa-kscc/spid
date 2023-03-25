@@ -1,7 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import { render, MARK_LINK } from "storyblok-rich-text-react-renderer";
 
-const Article = ({ blok, story }) => {
+const Article = ({ blok, story, categories }) => {
   const date = new Date(story.first_published_at);
   const dateFormat = new Intl.DateTimeFormat("hr");
 

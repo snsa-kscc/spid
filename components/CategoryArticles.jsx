@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
-const CategoryArticles = ({ story }) => {
+const CategoryArticles = ({ story, categories }) => {
   const perPage = 6;
   const [articles, setArticles] = useState([]);
   const [articlesLoaded, setArticlesLoaded] = useState(0);

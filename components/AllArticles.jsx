@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
-const AllArticles = ({ blok, perPage = 6, isStandalone = true }) => {
+const AllArticles = ({ blok, perPage = 6, isStandalone = true, categories }) => {
   //const perPage = 6;
   const [articles, setArticles] = useState([]);
   const [articlesLoaded, setArticlesLoaded] = useState(0);

@@ -192,7 +192,7 @@ a:hover::after {
   }
 }
 
-.article b {
+.legal b {
   display: inline-block;
   padding: 1em 0;
 }

@@ -1,15 +1,15 @@
 import Layout from "../components/Layout";
 import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
 
-export default function Page({ story, locale, locales, defaultLocale, config }) {
-  story = useStoryblokState(story, {
-    resolve_relations: "featured-posts.posts",
-    language: locale,
-  });
+export default function Page({ story, locale, locales, defaultLocale, config, categories }) {
+  // story = useStoryblokState(story, {
+  //   resolve_relations: "featured-posts.posts",
+  //   language: locale,
+  // });
 
   return (
     <Layout locale={locale} locales={locales} defaultLocale={defaultLocale} story={story} config={config}>
-      <StoryblokComponent blok={story.content} story={story} locale={locale} />
+      <StoryblokComponent blok={story.content} story={story} locale={locale} categories={categories} />
     </Layout>
   );
 }
@@ -19,12 +19,13 @@ export async function getStaticProps({ locale, locales, defaultLocale, params, p
 
   let sbParams = {
     version: preview ? "draft" : "published",
-    resolve_relations: "featured-posts.posts",
+    //resolve_relations: "featured-posts.posts",
     language: locale,
   };
 
   let { data } = await getStoryblokApi().get(`cdn/stories/${slug}`, sbParams);
   let { data: config } = await getStoryblokApi().get('cdn/stories/config');
+  let { data: category } = await getStoryblokApi().get('cdn/stories/?starts_with=category')
 
   return {
     props: {
@@ -34,6 +35,7 @@ export async function getStaticProps({ locale, locales, defaultLocale, params, p
       locales,
       defaultLocale,
       config: config ? config.story : false,
+      categories: category ? category.stories : false,
     },
     //revalidate: 180,
   };
