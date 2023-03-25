@@ -1,6 +1,8 @@
 import ArticleTeaser from "./ArticleTeaser";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import Router from "next/router";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -32,7 +34,15 @@ const CategoryArticles = ({ story, categories }) => {
 
   return (
     <>
-      <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.content.title}</h2>
+      <div>
+        <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.content.title}</h2>
+        <div className="container mx-auto flex gap-8">
+          <div>Sve novosti</div>
+          {categories.map((category) => (
+            <div key={category.uuid}>{category.name}</div>
+          ))}
+        </div>
+      </div>
       <div
         className="container grid grid-cols-spid gap-14 px-4 mx-auto 2xl:max-w-screen-xl mb-24"
         {...storyblokEditable(story.content)}
