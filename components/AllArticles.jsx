@@ -2,7 +2,6 @@ import ArticleTeaser from "./ArticleTeaser";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Router from "next/router";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
@@ -39,7 +38,7 @@ const AllArticles = ({ blok, perPage = 6, isStandalone = true, categories }) => 
         <div className="container mx-auto flex gap-8">
           <div>Sve novosti</div>
           {categories.map((category) => (
-            <div key={category.uuid}>{category.name}</div>
+            <div key={category.id}><Link href={category.full_slug}>{category.name}</Link></div>
           ))}
         </div>
       </div>}

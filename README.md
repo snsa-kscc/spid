@@ -11,13 +11,11 @@
 
 ### TODO:
 
-people
-
 clanstvo section jump
 
-article category
+people styles
 
-category selection
+category selection styles
 
 ---
 

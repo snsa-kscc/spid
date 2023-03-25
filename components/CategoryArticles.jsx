@@ -2,11 +2,14 @@ import ArticleTeaser from "./ArticleTeaser";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Router from "next/router";
+import { useRouter } from "next/router";
 
 const { NEXT_PUBLIC_TOKEN } = process.env;
 
 const CategoryArticles = ({ story, categories }) => {
+  const { asPath } = useRouter()
+  const isCurrentPage = (href) => asPath === href;
+
   const perPage = 6;
   const [articles, setArticles] = useState([]);
   const [articlesLoaded, setArticlesLoaded] = useState(0);
@@ -37,10 +40,11 @@ const CategoryArticles = ({ story, categories }) => {
       <div>
         <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.content.title}</h2>
         <div className="container mx-auto flex gap-8">
-          <div>Sve novosti</div>
+          <div><Link href="/article">Sve novosti</Link></div>
           {categories.map((category) => (
-            <div key={category.uuid}>{category.name}</div>
-          ))}
+            <div key={category.id}><Link href={category.full_slug}><a className={isCurrentPage("/" + category.full_slug) ? "active" : null}>{category.name}</a></Link></div>
+          )
+          )}
         </div>
       </div>
       <div
