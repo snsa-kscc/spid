@@ -4,7 +4,7 @@ import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storybl
 export default function Page({ story, locale, locales, defaultLocale, config, categories }) {
   story = useStoryblokState(story, {
     //resolve_relations: "featured-posts.posts",
-    language: locale,
+    //language: locale,
   });
 
   return (
