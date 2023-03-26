@@ -17,6 +17,8 @@ people styles
 
 category selection styles
 
+visual editor error
+
 ---
 
 https://api.vercel.com/v1/integrations/deploy/prj_MYjGlvYcUgRTYzKN4Siy5OdFJlVv/QNx3RBude2

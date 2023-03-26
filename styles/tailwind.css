@@ -188,7 +188,7 @@ a:hover::after {
 
   .featured .grid-cols-spid a:first-child img {
     aspect-ratio: 16/9;
-    flex-grow: 1;
+    flex-basis: 473px;
   }
 }
 
