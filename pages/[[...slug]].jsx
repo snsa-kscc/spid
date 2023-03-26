@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
 
 export default function Page({ story, locale, locales, defaultLocale, config, categories }) {
-  //story = useStoryblokState(story);
+  story = useStoryblokState(story);
 
   return (
     <Layout locale={locale} locales={locales} defaultLocale={defaultLocale} story={story} config={config}>
