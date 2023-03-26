@@ -11,7 +11,7 @@
 
 ### TODO:
 
-clanstvo section jump
+clanstvo section jump styles
 
 people styles
 

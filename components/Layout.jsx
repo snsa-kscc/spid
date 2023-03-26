@@ -3,13 +3,13 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 const Layout = ({ children, locale, locales, defaultLocale, story, config }) => {
-  const header_menu = config.content.header_menu
+  const content = config.content
   const footer = config.content.footer
   return (
     <div className="bg-[#FBFBFB]">
       <Head title={story.name} />
       <Navigation
-        blok={header_menu}
+        blok={content}
         locale={locale}
         locales={locales}
         defaultLocale={defaultLocale}

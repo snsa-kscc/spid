@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const Navigation = ({ locale, locales, blok }) => {
-  const { pathname, query } = useRouter();
+  const { pathname, query, asPath } = useRouter();
   const [open, setOpen] = useState(false)
 
   return (
@@ -45,15 +45,26 @@ const Navigation = ({ locale, locales, blok }) => {
             <div className={`absolute top-0 left-0 md:static md:flex md:items-center bg-[#FBFBFB]
               w-screen h-screen md:w-auto md:h-auto md:translate-y-0 md:visible ${open ? "translate-y-0" : "translate-y-full invisible"} transition-all duration-1000 ease-in-out`}>
               <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
-                {locale === 'hr' && blok.map((item) => (
-                  <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">
-                    <Link href={item.link.cached_url}>
-                      <a className="block p-1">
-                        {item.name}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
+                {locale === 'hr' && blok.header_menu.map((item) => {
+                  if (item.isNested && asPath === "/" + item.link.cached_url)
+                    return (
+                      <div key={item._uid}>
+                        <div>{item.name}</div>
+                        <div>{blok.members_menu.map((item) => (
+                          <div key={item._uid}>
+                            {item.name}
+                          </div>))}
+                        </div>
+                      </div>)
+                  return (
+                    <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">
+                      <Link href={item.link.cached_url}>
+                        <a className="block p-1">
+                          {item.name}
+                        </a>
+                      </Link>
+                    </li>)
+                })}
               </ul>
               <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0 px-2 md:px-0">
                 {locales.map((loc) => {
