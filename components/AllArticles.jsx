@@ -1,5 +1,5 @@
 import ArticleTeaser from "./ArticleTeaser";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
+import { storyblokEditable } from "@storyblok/react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
