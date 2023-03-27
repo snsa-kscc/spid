@@ -1,4 +1,3 @@
-import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const RightChrono = ({ blok }) => {
