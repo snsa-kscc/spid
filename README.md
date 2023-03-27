@@ -6,8 +6,6 @@ Website for Croatian Screenwriters and Playwrights Guild based in Zagreb, Croati
 
 ### TODO:
 
-clanstvo section jump styles
-
 people styles
 
 ---

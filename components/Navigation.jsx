@@ -27,7 +27,7 @@ const Navigation = ({ locale, locales, blok }) => {
               </a>
             </Link>
           </div>
-          <div className="ml-auto mr-4 md:hidden z-10">
+          <div className={`${openNav ? "fixed" : "static"} right-0 md:static ml-auto mr-4 md:hidden z-20`}>
             <button
               className="flex items-center px-3 py-2 border rounded"
               onClick={() => setOpenNav(!openNav)}
@@ -43,7 +43,7 @@ const Navigation = ({ locale, locales, blok }) => {
             </button>
           </div>
           <div className="relative w-full md:w-auto md:flex-grow z-10">
-            <div className={`absolute top-0 left-0 md:static md:flex md:items-center bg-[#FBFBFB]
+            <div className={`fixed top-0 left-0 p-12 md:p-0 md:static md:flex md:items-center bg-[#FBFBFB]
               w-screen h-screen md:w-auto md:h-auto md:translate-y-0 md:visible ${openNav ? "translate-y-0" : "translate-y-full invisible"} transition-all duration-1000 ease-in-out`}>
               <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
                 {locale === 'hr' && blok.header_menu.map((item) => {
