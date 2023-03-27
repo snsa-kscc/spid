@@ -39,8 +39,8 @@ const AllArticles = ({ blok, perPage = 6, isStandalone = true, categories }) => 
           <div className="container mx-auto 2xl:max-w-screen-xl flex flex-wrap gap-2 py-6 px-4">
             <div className="border-2 border-[#5BA1E5] py-2 px-5 text-white bg-[#5BA1E5] rounded-full">#Sve novosti</div>
             {categories.map((category) => (
-              <div key={category.id} className="border-2 border-[#5BA1E5] rounded-full text-[#5BA1E5]
-                py-2 px-5 transition-all duration-300 hover:border-[#B1D2F5] hover:text-[#B1D2F5]"><Link href={category.full_slug}>{`#${category.name}`}</Link></div>
+              <Link key={category.id} href={category.full_slug}><a className="border-2 border-[#5BA1E5] rounded-full text-[#5BA1E5]
+                py-2 px-5 transition-all duration-300 hover:border-[#B1D2F5] hover:text-[#B1D2F5]">#{category.name}</a></Link>
             ))}
           </div>
         </div>
