@@ -15,8 +15,6 @@ clanstvo section jump styles
 
 people styles
 
-category selection styles
-
 ---
 
 https://api.vercel.com/v1/integrations/deploy/prj_MYjGlvYcUgRTYzKN4Siy5OdFJlVv/QNx3RBude2
