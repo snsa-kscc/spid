@@ -51,6 +51,10 @@
   src: url("IntegralCF-Heavy.otf");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 iframe {
   margin: 0 auto;
 }
@@ -155,7 +159,7 @@ a:hover::after {
 
 .diagonal-blue {
   position: relative;
-  isolation: isolate;
+  z-index: 1;
 }
 
 .diagonal-blue::after {
@@ -169,7 +173,7 @@ a:hover::after {
 
 .diagonal-purple {
   position: relative;
-  isolation: isolate;
+  z-index: 1;
 }
 
 .diagonal-purple::after {

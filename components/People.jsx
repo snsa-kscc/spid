@@ -54,7 +54,7 @@ const People = ({ blok }) => {
   const { columns: associatedColumns, letterPairs: associatedLetterPairs, totalPeople: totalAssociatedPeople } = getColumnData(blok.associatedMembers);
 
   return (
-    <div {...storyblokEditable(blok)}>
+    <div {...storyblokEditable(blok)} id="clanovi">
       <div>
         <p>{blok.regularTitle}</p>
         <div

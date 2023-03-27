@@ -2,7 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 
 const Bullets = ({ blok, activitiesArray, layout }) => {
   return (
-    <div {...storyblokEditable(blok)} className="container mx-auto px-4">
+    <div {...storyblokEditable(blok)} className="container mx-auto px-4" id="prednosti">
       <div className={`grid ${layout}`}>
         <div className="inline-block bg-[#B1D2F5] px-8 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-lg shadow-spid mb-24 sm:mb-32 md:mb-48">
           <p className="font-mono text-xl sm:text-2xl text-center">{blok.subHead}</p>

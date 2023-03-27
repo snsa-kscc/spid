@@ -5,7 +5,7 @@ import Link from "next/link";
 const Register = ({ blok }) => {
   const stepsArray = blok.steps.split(",").map(step => step.trim())
   return (
-    <div {...storyblokEditable(blok)} className="my-28 md:my-40 lg:my-56 px-4">
+    <div {...storyblokEditable(blok)} className="my-28 md:my-40 lg:my-56 px-4" id="uclani-se">
       <div className="container mx-auto">
         <h2 className="font-mono font-medium text-4xl md:text-6xl lg:text-7xl my-16 md:my-32">{blok.headline}</h2>
         <div className="steps font-mono font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl">

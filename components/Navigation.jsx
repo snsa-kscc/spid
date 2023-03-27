@@ -3,13 +3,15 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 const Navigation = ({ locale, locales, blok }) => {
-  const { pathname, query, asPath } = useRouter();
-  const [open, setOpen] = useState(false)
+  const { pathname, query, asPath } = useRouter()
+
+  const [openNav, setOpenNav] = useState(false)
+  const [openSubNav, setOpenSubNav] = useState(false)
 
   return (
     <header className="w-full border-b-4 border-black">
       <nav className="md:container md:mx-auto py-6" role="navigation">
-        <div className="font-medium md:text-lg flex flex-wrap items-center md:flex-no-wrap relative isolate">
+        <div className="font-medium md:text-lg flex flex-wrap items-center md:flex-no-wrap relative">
           <div className="mr-4 ml-4 md:mr-8 z-10">
             <Link href="/">
               <a>
@@ -28,8 +30,7 @@ const Navigation = ({ locale, locales, blok }) => {
           <div className="ml-auto mr-4 md:hidden z-10">
             <button
               className="flex items-center px-3 py-2 border rounded"
-              type="button"
-              onClick={() => setOpen(!open)}
+              onClick={() => setOpenNav(!openNav)}
             >
               <svg
                 className="h-3 w-3"
@@ -41,25 +42,42 @@ const Navigation = ({ locale, locales, blok }) => {
               </svg>
             </button>
           </div>
-          <div className="relative w-full md:w-auto md:flex-grow">
+          <div className="relative w-full md:w-auto md:flex-grow z-10">
             <div className={`absolute top-0 left-0 md:static md:flex md:items-center bg-[#FBFBFB]
-              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 md:visible ${open ? "translate-y-0" : "translate-y-full invisible"} transition-all duration-1000 ease-in-out`}>
+              w-screen h-screen md:w-auto md:h-auto md:translate-y-0 md:visible ${openNav ? "translate-y-0" : "translate-y-full invisible"} transition-all duration-1000 ease-in-out`}>
               <ul className="flex flex-col mt-4 pt-4 md:flex-row md:items-center md:mt-0 md:pt-0 md:mx-auto md:border-0 navigation-links">
                 {locale === 'hr' && blok.header_menu.map((item) => {
-                  if (item.isNested && asPath === "/" + item.link.cached_url)
+                  if (item.isNested && asPath.startsWith("/" + item.link.cached_url))
                     return (
-                      <div key={item._uid}>
-                        <div>{item.name}</div>
-                        <div>{blok.members_menu.map((item) => (
-                          <div key={item._uid}>
-                            {item.name}
-                          </div>))}
+                      <li key={item._uid} className="relative px-4 py-1 md:p-2 lg:px-8">
+                        <div className="flex gap-3 items-center p-1">
+                          <button className="transition-all duration-300 md:hover:text-slate-400"
+                            onClick={() => setOpenSubNav(!openSubNav)}>{item.name}</button>
+                          <svg className={openSubNav ? "rotate-90 transition-all duration-300" : "transition-all duration-300"} width="11" height="11" viewBox="0 0 512 512">
+                            <path d="M361.891,242.03L187.347,9.31c-7.714-10.283-22.298-12.365-32.582-4.655
+                              c-10.283,7.713-12.367,22.3-4.655,32.582l164.072,218.758L150.111,474.762c-7.713,10.282-5.627,24.871,4.655,32.582
+                              c4.186,3.14,9.086,4.656,13.945,4.656c7.076,0,14.064-3.215,18.637-9.311l174.544-232.732
+                              C368.097,261.683,368.097,250.304,361.891,242.03z"/>
+                          </svg>
                         </div>
-                      </div>)
+                        <ul className={`lg:p-3 md:absolute md:top-24 md:left-0 w-max md:border-2 md:border-black md:shadow-spid md:rounded-md md:transition-all md:duration-300 md:ease-in-out ${openSubNav
+                          ? ""
+                          : "opacity-0 h-0 md:h-auto pointer-events-none"
+                          }`}>{blok.members_menu.map((item) => (
+                            <li key={item._uid}>
+                              <Link href={item.link.cached_url}><a className="inline-block p-1 md:p-2 mx-2">
+                                <button onClick={() => {
+                                  setOpenNav(!openNav)
+                                  setOpenSubNav(!openSubNav)
+                                }}>{item.name}</button>
+                              </a></Link>
+                            </li>))}
+                        </ul>
+                      </li>)
                   return (
                     <li key={item._uid} className="px-4 py-1 md:p-2 lg:px-8">
                       <Link href={item.link.cached_url}>
-                        <a className="block p-1">
+                        <a className="p-1">
                           {item.name}
                         </a>
                       </Link>
@@ -69,11 +87,11 @@ const Navigation = ({ locale, locales, blok }) => {
               <ul className="flex flex-col mt-4 pt-4 border-t md:flex-row md:items-center md:mx-0 md:mt-0 md:pt-0 md:border-0 px-2 md:px-0">
                 {locales.map((loc) => {
                   return (
-                    <li key={loc} className="px-0.5">
+                    <li key={loc} className="m-1 px-0.5">
                       <Link href={{ pathname: loc === 'en' ? '/' : pathname, query }} locale={loc}>
                         <a className={`block px-4 py-1 md:p-2 rounded-lg lg:px-4 transition-all duration-500 ease-in-out ${locale === loc
                           ? "bg-[#B1D2F5] text-black hover:bg-[#5BA1E5]" : "hover:bg-[#E2E2E2]"}`}>
-                          {loc.toUpperCase()}
+                          <button className="w-full" onClick={() => setOpenNav(!openNav)}>{loc.toUpperCase()}</button>
                         </a>
                       </Link>
                     </li>
