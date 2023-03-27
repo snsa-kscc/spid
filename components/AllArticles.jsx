@@ -35,11 +35,14 @@ const AllArticles = ({ blok, perPage = 6, isStandalone = true, categories }) => 
     <>
       {isStandalone && <div>
         <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{blok.title}</h2>
-        <div className="container mx-auto flex gap-8">
-          <div>Sve novosti</div>
-          {categories.map((category) => (
-            <div key={category.id}><Link href={category.full_slug}>{category.name}</Link></div>
-          ))}
+        <div className="border-black border-y-2 my-16 text-sm lg:text-base">
+          <div className="container mx-auto 2xl:max-w-screen-xl flex flex-wrap gap-2 py-6 px-4">
+            <div className="border-2 border-[#5BA1E5] py-2 px-5 text-white bg-[#5BA1E5] rounded-full">#Sve novosti</div>
+            {categories.map((category) => (
+              <div key={category.id} className="border-2 border-[#5BA1E5] rounded-full text-[#5BA1E5]
+                py-2 px-5 transition-all duration-300 hover:border-[#B1D2F5] hover:text-[#B1D2F5]"><Link href={category.full_slug}>{`#${category.name}`}</Link></div>
+            ))}
+          </div>
         </div>
       </div>}
       <div
