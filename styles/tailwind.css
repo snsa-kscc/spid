@@ -51,10 +51,6 @@
   src: url("IntegralCF-Heavy.otf");
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 iframe {
   margin: 0 auto;
 }
