@@ -1,4 +1,5 @@
 import { storyblokEditable } from "@storyblok/react";
+import { useState } from "react";
 
 const getColumnData = (people) => {
   const entriesPerColumn = 11;
@@ -80,7 +81,7 @@ const getColumnData = (people) => {
 
 const Column = ({ entries }) => {
   return (
-    <div className="text-sm md:text-base">
+    <div className="text-sm md:text-base flex-shrink-0">
       {entries.map((entry) => (
         <div className="p-1" key={entry}>
           {entry.replace(',', '')}
@@ -91,9 +92,21 @@ const Column = ({ entries }) => {
 };
 
 const People = ({ blok }) => {
+  const [activeIndex, setActiveIndex] = useState(0)
 
-  const { columns: regularColumns, letterPairs: regularLetterPairs, totalPeople: totalRegularPeople, columnPairs: regularColumnPairs } = getColumnData(blok.regularMembers);
+
+  const { letterPairs: regularLetterPairs, totalPeople: totalRegularPeople, columnPairs: regularColumnPairs } = getColumnData(blok.regularMembers);
   const { columns: associatedColumns, letterPairs: associatedLetterPairs, totalPeople: totalAssociatedPeople } = getColumnData(blok.associatedMembers);
+
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex = 0;
+    } else if (newIndex >= regularColumnPairs.length) {
+      newIndex = regularColumnPairs.length - 1;
+    }
+
+    setActiveIndex(newIndex);
+  };
 
   return (
     <div {...storyblokEditable(blok)} id="clanovi">
@@ -101,23 +114,30 @@ const People = ({ blok }) => {
         <div className="inline-block bg-[#B1D2F5] px-8 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-lg shadow-spid my-12">
           <p className="font-mono text-xl sm:text-2xl text-center">{blok.regularTitle}</p>
         </div>
-        <ul>
-          {regularLetterPairs.map((pair, index) => (
-            <li key={index}>{pair[0]} - {pair[1]}</li>
-          ))}
-        </ul>
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          {regularColumns.map((column, index) => (
-            <Column entries={column} key={index} />
-          ))}
+        <div className="overflow-hidden w-2/4 mx-auto">
+          <div style={{ transform: `translate(-${activeIndex * 100}%)` }} className="transition-all duration-300 whitespace-nowrap">
+            {regularColumnPairs.map(([firstColumn, secondColumn], index) => (
+              <div className="inline-flex w-full justify-around items-center" key={index}>
+                <Column entries={firstColumn} />
+                {secondColumn.at(-1) && <Column entries={secondColumn} />}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          {regularColumnPairs.map(([firstColumn, secondColumn], index) => (
-            <div key={index}>
-              <Column entries={firstColumn} />
-              <Column entries={secondColumn} />
-            </div>
-          ))}
+        <div className="flex w-1/4 justify-between mx-auto">
+          <button onClick={() => {
+            updateIndex(activeIndex - 1);
+          }}>prev</button>
+          <ul className="flex gap-2">
+            {regularLetterPairs.map((pair, index) => (
+              <button onClick={() => updateIndex(index)}>
+                <li className={index === activeIndex ? "outline" : null} key={index}>{pair[0]} - {pair[1]}</li>
+              </button>
+            ))}
+          </ul>
+          <button onClick={() => {
+            updateIndex(activeIndex + 1);
+          }}>next</button>
         </div>
         <p>Ukupno</p>
         <p>{totalRegularPeople}</p>
@@ -131,7 +151,7 @@ const People = ({ blok }) => {
             <li key={index}>{pair[0]} - {pair[1]}</li>
           ))}
         </ul>
-        <div className="flex flex-wrap items-start justify-between">
+        <div className="flex flex-wrap items-start justify-evenly">
           {associatedColumns.map((column, index) => (
             <Column entries={column} key={index} />
           ))}
