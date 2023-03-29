@@ -4,7 +4,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 const Text = ({ blok }) => {
   return (
     <div {...storyblokEditable(blok)} className={`max-w-3xl mx-auto px-4 pb-32 ${blok.rightText && "md:ml-[40%]"}`}>
-      <div className="legal leading-relaxed md:text-xl text-left text-gray-800">{render(blok.long_text)}</div>
+      <div className="legal leading-relaxed md:leading-relaxed md:text-xl text-left text-gray-800">{render(blok.long_text)}</div>
       {blok.link &&
         <a href={`${blok.link.filename}`} className="inline-block pt-20" target="_blank">
           <p className="bg-[#B1D2F5] px-20 py-6 lg:px-24 sm:py-8 border-4 border-black rounded-full shadow-spid

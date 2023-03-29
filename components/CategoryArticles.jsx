@@ -38,7 +38,7 @@ const CategoryArticles = ({ story, categories }) => {
   return (
     <>
       <div>
-        <h2 className="font-mono text-6xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.content.title}</h2>
+        <h2 className="font-mono text-5xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.content.title}</h2>
         <div className="border-black border-y-2 my-16 text-sm lg:text-base">
           <div className="container mx-auto 2xl:max-w-screen-xl flex flex-wrap gap-2 py-6 px-4">
             <Link href="/article"><a className="border-2 border-[#5BA1E5] rounded-full text-[#5BA1E5]

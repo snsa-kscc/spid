@@ -62,7 +62,7 @@ const Article = ({ blok, story, categories }) => {
         </div>
       </div>
       <div className="max-w-3xl mx-auto text-center pt-20">
-        <div className="article leading-relaxed text-xl text-left text-gray-800">{render(blok.long_text, options)}</div>
+        <div className="article leading-relaxed sm:leading-relaxed text-lg sm:text-xl text-left text-gray-800">{render(blok.long_text, options)}</div>
       </div>
     </div>
   );
