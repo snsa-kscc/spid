@@ -1,5 +1,6 @@
 import { storyblokEditable } from "@storyblok/react";
 import { useState } from "react";
+import crypto from "crypto";
 
 const getColumnData = (people) => {
   const entriesPerColumn = 11;
