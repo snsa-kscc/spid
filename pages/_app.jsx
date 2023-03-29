@@ -51,6 +51,6 @@ function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 
-//console.log('Made with love by dvasadva.');
+console.log('Made with love by dvasadva.');
 
 export default MyApp;

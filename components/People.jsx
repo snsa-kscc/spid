@@ -1,6 +1,5 @@
 import { storyblokEditable } from "@storyblok/react";
 import { useState } from "react";
-import crypto from "crypto";
 
 const getColumnData = (people) => {
   const entriesPerColumn = 11;
@@ -124,9 +123,9 @@ const People = ({ blok }) => {
             }}><div className="h-0 w-0 border-x-8 border-x-transparent border-b-8 border-b-[#5BA1E5] rotate-[270deg] transition-all duration-300 ease-in-out hover:border-b-[#B1D2F5]"></div></button>
             <ul className="hidden sm:flex sm:gap-4 md:gap-6 lg:gap-8 px-4">
               {regularLetterPairs.map((pair, index) => (
-                <button key={crypto.randomUUID()} onClick={() => updateIndex(index)}>
+                <button key={index} onClick={() => updateIndex(index)}>
                   <li className={`font-mono sm:text-xl md:text-2xl lg:text-3xl py-4 px-2 transition-all duration-300 ease-in-out hover:text-slate-600
-                  ${index === activeIndex ? "border-black border-b-4" : ""}`} key={crypto.randomUUID()}>{pair[0]} - {pair[1]}</li>
+                  ${index === activeIndex ? "border-black border-b-4" : ""}`}>{pair[0]} - {pair[1]}</li>
                 </button>
               ))}
             </ul>
@@ -142,10 +141,10 @@ const People = ({ blok }) => {
           </div>
           <div className="overflow-hidden">
             <div style={{ transform: `translate(-${activeIndex * 100}%)` }} className="transition-all duration-300 whitespace-nowrap">
-              {regularColumnPairs.map(([firstColumn, secondColumn]) => (
-                <div className="inline-flex w-full justify-evenly items-center" key={crypto.randomUUID()}>
-                  <Column entries={firstColumn} key={crypto.randomUUID()} />
-                  {secondColumn.at(-1) && <Column entries={secondColumn} key={crypto.randomUUID()} />}
+              {regularColumnPairs.map(([firstColumn, secondColumn], idx) => (
+                <div className="inline-flex w-full justify-evenly items-center" key={idx}>
+                  <Column entries={firstColumn} />
+                  {secondColumn.at(-1) && <Column entries={secondColumn} />}
                 </div>
               ))}
             </div>
@@ -161,8 +160,8 @@ const People = ({ blok }) => {
         <div className="border-y-2 border-black my-16">
           <div className="lg:container flex justify-evenly mx-auto px-4">
             <ul className="flex gap-4 md:gap-6 lg:gap-8 px-4">
-              {associatedLetterPairs.map((pair) => (
-                <li className="font-mono text-xl md:text-2xl lg:text-3xl py-4 px-2" key={crypto.randomUUID()}>{pair[0]} - {pair[1]}</li>
+              {associatedLetterPairs.map((pair, idx) => (
+                <li className="font-mono text-xl md:text-2xl lg:text-3xl py-4 px-2" key={idx}>{pair[0]} - {pair[1]}</li>
               ))}
             </ul>
           </div>
@@ -173,8 +172,8 @@ const People = ({ blok }) => {
             <p className="font-black text-8xl text-[#498DD6]">{totalAssociatedPeople}</p>
           </div>
           <div className="inline-flex flex-wrap w-full justify-evenly items-start">
-            {associatedColumns.map((column) => (
-              <Column entries={column} key={crypto.randomUUID()} />
+            {associatedColumns.map((column, idx) => (
+              <Column entries={column} key={idx} />
             ))}
           </div>
         </div>
