@@ -17,7 +17,7 @@ const Accordion = ({ blok }) => {
       <button
         onClick={() => setToggle(!toggle)}
         className="flex justify-between items-center gap-20 p-6 w-full">
-        <div className="font-mono text-xl sm:text-2xl lg:text-3xl leading-normal sm:leading-normal lg:leading-normal">{blok.title}</div>
+        <div className="font-mono text-xl sm:text-2xl lg:text-3xl leading-normal sm:leading-normal lg:leading-normal transition-all duration-300 ease-in-out hover:text-slate-600">{blok.title}</div>
         <svg className={toggle ? "rotate-90 transition-all duration-300" : "transition-all duration-300"} width="40" height="40" viewBox="0 0 512 512">
           <path d="M361.891,242.03L187.347,9.31c-7.714-10.283-22.298-12.365-32.582-4.655
           c-10.283,7.713-12.367,22.3-4.655,32.582l164.072,218.758L150.111,474.762c-7.713,10.282-5.627,24.871,4.655,32.582

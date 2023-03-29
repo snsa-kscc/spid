@@ -110,54 +110,73 @@ const People = ({ blok }) => {
 
   return (
     <div {...storyblokEditable(blok)} id="clanovi">
-      <div>
-        <div className="inline-block bg-[#B1D2F5] px-8 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-lg shadow-spid my-12">
-          <p className="font-mono text-xl sm:text-2xl text-center">{blok.regularTitle}</p>
+      <div className="mb-24 sm:mb-32 pb-10 border-black border-b-2">
+        <div className="container mx-auto px-4">
+          <div className="inline-block bg-[#B1D2F5] px-8 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-lg shadow-spid my-12">
+            <p className="font-mono text-xl sm:text-2xl text-center">{blok.regularTitle}</p>
+          </div>
         </div>
-        <div className="overflow-hidden w-2/4 mx-auto">
-          <div style={{ transform: `translate(-${activeIndex * 100}%)` }} className="transition-all duration-300 whitespace-nowrap">
-            {regularColumnPairs.map(([firstColumn, secondColumn], index) => (
-              <div className="inline-flex w-full justify-around items-center" key={index}>
-                <Column entries={firstColumn} />
-                {secondColumn.at(-1) && <Column entries={secondColumn} />}
-              </div>
+        <div className="border-y-2 border-black my-16">
+          <div className="lg:container flex justify-evenly mx-auto px-4 py-6 sm:py-0">
+            <button onClick={() => {
+              updateIndex(activeIndex - 1);
+            }}><div className="h-0 w-0 border-x-8 border-x-transparent border-b-8 border-b-[#5BA1E5] rotate-[270deg] transition-all duration-300 ease-in-out hover:border-b-[#B1D2F5]"></div></button>
+            <ul className="hidden sm:flex sm:gap-4 md:gap-6 lg:gap-8 px-4">
+              {regularLetterPairs.map((pair, index) => (
+                <button key={crypto.randomUUID()} onClick={() => updateIndex(index)}>
+                  <li className={`font-mono sm:text-xl md:text-2xl lg:text-3xl py-4 px-2 transition-all duration-300 ease-in-out hover:text-slate-600
+                  ${index === activeIndex ? "border-black border-b-4" : ""}`} key={crypto.randomUUID()}>{pair[0]} - {pair[1]}</li>
+                </button>
+              ))}
+            </ul>
+            <button onClick={() => {
+              updateIndex(activeIndex + 1);
+            }}><div className="h-0 w-0 border-x-8 border-x-transparent border-b-8 border-b-[#5BA1E5] rotate-90 transition-all duration-300 ease-in-out hover:border-b-[#B1D2F5]"></div></button>
+          </div>
+        </div>
+        <div className="flex flex-wrap lg:flex-nowrap gap-y-12 justify-center items-end px-4">
+          <div className="font-mono basis-1/2 xl:basis-1/3 2xl:basis-1/4 order-1 lg:order-none text-center lg:text-right">
+            <p className="text-3xl">Ukupno</p>
+            <p className="font-black text-8xl text-[#498DD6]">{totalRegularPeople}</p>
+          </div>
+          <div className="overflow-hidden">
+            <div style={{ transform: `translate(-${activeIndex * 100}%)` }} className="transition-all duration-300 whitespace-nowrap">
+              {regularColumnPairs.map(([firstColumn, secondColumn]) => (
+                <div className="inline-flex w-full justify-evenly items-center" key={crypto.randomUUID()}>
+                  <Column entries={firstColumn} key={crypto.randomUUID()} />
+                  {secondColumn.at(-1) && <Column entries={secondColumn} key={crypto.randomUUID()} />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mb-24 sm:mb-32 pb-10 border-black border-b-2">
+        <div className="container mx-auto px-4">
+          <div className="inline-block bg-[#5BA1E5] px-8 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-lg shadow-spid my-12">
+            <p className="font-mono text-white text-xl sm:text-2xl text-center">{blok.associatedTitle}</p>
+          </div>
+        </div>
+        <div className="border-y-2 border-black my-16">
+          <div className="lg:container flex justify-evenly mx-auto px-4">
+            <ul className="flex gap-4 md:gap-6 lg:gap-8 px-4">
+              {associatedLetterPairs.map((pair) => (
+                <li className="font-mono text-xl md:text-2xl lg:text-3xl py-4 px-2" key={crypto.randomUUID()}>{pair[0]} - {pair[1]}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-wrap lg:flex-nowrap gap-y-12 justify-center items-end px-4">
+          <div className="font-mono basis-1/3 xl:basis-1/4 order-1 lg:order-none text-center lg:text-right">
+            <p className="text-3xl">Ukupno</p>
+            <p className="font-black text-8xl text-[#498DD6]">{totalAssociatedPeople}</p>
+          </div>
+          <div className="inline-flex flex-wrap w-full justify-evenly items-start">
+            {associatedColumns.map((column) => (
+              <Column entries={column} key={crypto.randomUUID()} />
             ))}
           </div>
         </div>
-        <div className="flex w-1/4 justify-between mx-auto">
-          <button onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}>prev</button>
-          <ul className="flex gap-2">
-            {regularLetterPairs.map((pair, index) => (
-              <button onClick={() => updateIndex(index)}>
-                <li className={index === activeIndex ? "outline" : null} key={index}>{pair[0]} - {pair[1]}</li>
-              </button>
-            ))}
-          </ul>
-          <button onClick={() => {
-            updateIndex(activeIndex + 1);
-          }}>next</button>
-        </div>
-        <p>Ukupno</p>
-        <p>{totalRegularPeople}</p>
-      </div>
-      <div>
-        <div className="inline-block bg-[#5BA1E5] px-8 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-lg shadow-spid my-12">
-          <p className="font-mono text-white text-xl sm:text-2xl text-center">{blok.associatedTitle}</p>
-        </div>
-        <ul>
-          {associatedLetterPairs.map((pair, index) => (
-            <li key={index}>{pair[0]} - {pair[1]}</li>
-          ))}
-        </ul>
-        <div className="flex flex-wrap items-start justify-evenly">
-          {associatedColumns.map((column, index) => (
-            <Column entries={column} key={index} />
-          ))}
-        </div>
-        <p>Ukupno</p>
-        <p>{totalAssociatedPeople}</p>
       </div>
     </div>
   );
