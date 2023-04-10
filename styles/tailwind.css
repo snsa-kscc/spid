@@ -136,7 +136,9 @@ a:hover::after {
   box-shadow: inset 0 -0.175em white, inset 0 -0.45em #5ba1e5;
 }
 
-.text-block p {
+.text-block p,
+.text-block ol,
+.text-block ul {
   margin-bottom: 1em;
 }
 
