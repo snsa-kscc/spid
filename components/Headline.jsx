@@ -4,7 +4,7 @@ const Headline = ({ blok }) => {
   if (blok.layout === 'img') {
     return (
       <div {...storyblokEditable(blok)}>
-        <div className=" font-mono pb-6 pt-16 sm:pt-36 container mx-auto">
+        <div className=" font-mono pb-6 pt-16 sm:pt-36 container max-w-screen-xl mx-auto">
           <img
             src={blok.image.filename}
             alt={blok.image.alt}
