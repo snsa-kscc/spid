@@ -51,7 +51,7 @@ const Navigation = ({ locale, locales, blok }) => {
                     return (
                       <li key={item._uid} className="relative px-4 py-1 md:p-2 lg:px-8">
                         <div className="flex gap-3 items-center p-1">
-                          <button className="transition-all duration-300 md:hover:text-slate-400"
+                          <button className="font-medium transition-all duration-300 md:hover:text-slate-400"
                             onClick={() => setOpenSubNav(!openSubNav)}>{item.name}</button>
                           <svg className={openSubNav ? "rotate-90 transition-all duration-300" : "transition-all duration-300"} width="11" height="11" viewBox="0 0 512 512">
                             <path d="M361.891,242.03L187.347,9.31c-7.714-10.283-22.298-12.365-32.582-4.655
@@ -60,7 +60,7 @@ const Navigation = ({ locale, locales, blok }) => {
                               C368.097,261.683,368.097,250.304,361.891,242.03z"/>
                           </svg>
                         </div>
-                        <ul className={`lg:p-3 md:absolute md:top-24 md:left-0 w-max md:border-2 md:border-black md:shadow-spid md:rounded-md md:transition-all md:duration-300 md:ease-in-out ${openSubNav
+                        <ul className={`bg-[#FBFBFB] lg:p-3 md:absolute md:top-24 md:left-0 w-max md:border-2 md:border-black md:shadow-spid md:rounded-md md:transition-all md:duration-300 md:ease-in-out ${openSubNav
                           ? ""
                           : "opacity-0 h-0 md:h-auto pointer-events-none"
                           }`}>{blok.members_menu.map((item) => (
