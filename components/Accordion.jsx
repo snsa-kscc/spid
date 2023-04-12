@@ -13,7 +13,7 @@ const Accordion = ({ blok }) => {
   }, [])
 
   return (
-    <div {...storyblokEditable(blok)} className="container lg:max-w-screen-lg mx-auto px-4 my-32 sm:my-40 border-y-2 border-black">
+    <div {...storyblokEditable(blok)} id="dokumentacija" className="container lg:max-w-screen-lg mx-auto px-4 my-32 sm:my-40 border-y-2 border-black">
       <button
         onClick={() => setToggle(!toggle)}
         className="flex justify-between items-center gap-20 p-6 w-full">
