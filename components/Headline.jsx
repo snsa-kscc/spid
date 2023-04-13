@@ -4,13 +4,13 @@ const Headline = ({ blok }) => {
   if (blok.layout === 'img') {
     return (
       <div {...storyblokEditable(blok)}>
-        <div className=" font-mono pb-6 pt-16 sm:pt-36 container max-w-screen-xl mx-auto">
+        <div className="font-mono pb-6 xl:py-44 pt-16 sm:pt-36 container mx-auto xl:flex flex-row-reverse items-center">
           <img
             src={blok.image.filename}
             alt={blok.image.alt}
-            className="md:w-2/3 ml-auto px-6"
+            className="md:w-2/3 xl:w-full ml-auto px-6 basis-1/2"
           />
-          <h1 className="text-3xl sm:text-6xl lg:text-7xl xl:text-8xl leading-snug sm:leading-snug lg:leading-snug text-center p-6 md:p-10 lg:p-16">
+          <h1 className="text-3xl sm:text-6xl lg:text-7xl leading-snug sm:leading-snug lg:leading-snug text-center p-6 md:p-10 xl:p-6 basis-1/2">
             {blok.title}
           </h1>
         </div>
