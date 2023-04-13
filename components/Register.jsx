@@ -21,10 +21,10 @@ const Register = ({ blok }) => {
               c-2,4.6-1.6,10.4,3.5,18.4l0.3-0.2c-5-8-5.4-13.7-3.5-18.1c1.9-4.4,6.1-7.7,10.3-10.9c4.1-3.2,8.3-6.4,9.9-10.7
               c1.7-4.3,0.8-9.8-4.9-17.4L17.3,1.4z"/>
             </svg>
-            <Link href={blok.criteria.cached_url}>
+            <Link href={blok.criteriaLink.cached_url}>
               <a className="inline-block pt-10">
                 <p className="bg-[#B1D2F5] px-16 py-6 lg:px-20 sm:py-8 border-4 border-black rounded-full shadow-spid font-mono text-xl sm:text-2xl xl:text-3xl text-center inline-block
-                  hover:bg-[#5BA1E5] transition-all duration-500 ease-in-out">Kriteriji za članstvo</p>
+                  hover:bg-[#5BA1E5] transition-all duration-500 ease-in-out">{blok.criteriaTitle}</p>
               </a>
             </Link>
             <a href={blok.form.url} className="inline-block pt-10" target={blok.form.target}>
