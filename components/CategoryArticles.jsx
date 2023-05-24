@@ -19,7 +19,7 @@ const CategoryArticles = ({ story, categories }) => {
     const getArticles = async () => {
 
       const response = await
-        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=article&page=${page}&per_page=${perPage}&filter_query[topic][exists]=${story.uuid}&sort_by=first_published_at:desc&token=${NEXT_PUBLIC_TOKEN}`);
+        fetch(`https://api.storyblok.com/v2/cdn/stories?is_startpage=false&starts_with=novosti&page=${page}&per_page=${perPage}&filter_query[topic][exists]=${story.uuid}&sort_by=first_published_at:desc&token=${NEXT_PUBLIC_TOKEN}`);
       const data = await response.json();
 
       setArticles((prev) => [...prev, ...data.stories.map((article) => {
@@ -41,7 +41,7 @@ const CategoryArticles = ({ story, categories }) => {
         <h2 className="font-mono text-5xl sm:text-7xl md:text-9xl my-24 md:my-36 lg:my-48 xl:my-60 container mx-auto pl-4">{story.content.title}</h2>
         <div className="border-black border-y-2 my-16 text-sm lg:text-base">
           <div className="container mx-auto 2xl:max-w-screen-xl flex flex-wrap gap-2 py-6 px-4">
-            <Link href="/article"><a className="border-2 border-[#5BA1E5] rounded-full text-[#5BA1E5]
+            <Link href="/novosti"><a className="border-2 border-[#5BA1E5] rounded-full text-[#5BA1E5]
                 py-2 px-5 transition-all duration-300 hover:border-[#B1D2F5] hover:text-[#B1D2F5]">#Sve novosti</a></Link>
             {categories.map((category) => (
               <Link key={category.id} href={category.full_slug}>
