@@ -2,6 +2,7 @@ import "../styles/tailwind.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 import Article from "../components/Article";
+import SliderArticle from "../components/SliderArticle";
 import FeaturedArticles from "../components/FeaturedArticles";
 import Grid from "../components/Grid";
 import Page from "../components/Page";
@@ -26,6 +27,7 @@ const components = {
   grid: Grid,
   page: Page,
   post: Article,
+  post_with_slider: SliderArticle,
   posts: AllArticles,
   category: CategoryArticles,
   headline: Headline,
