@@ -2,8 +2,13 @@ import { storyblokEditable } from "@storyblok/react";
 import { Fragment } from "react";
 import { render, MARK_LINK } from "storyblok-rich-text-react-renderer";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-const Article = ({ blok, story, categories }) => {
+const SliderArticle = ({ blok, story, categories }) => {
 
   const catCloud = categories.filter((category) => {
     return blok.topic.includes(category.uuid)
@@ -61,7 +66,18 @@ const Article = ({ blok, story, categories }) => {
           </div>
         </div>
       </div>
-      <div>{JSON.stringify(blok.slider_items)}</div>
+      <Swiper pagination={{
+        type: 'progressbar',
+      }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="max-w-3xl mx-auto mt-20">
+        {blok.slider_items.map((item, idx) => (
+          <SwiperSlide key={idx} className="w-full">
+            <img src={item.filename} alt={`${story.name} ${String(idx + 1).padStart(2, '0')}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div className="max-w-3xl mx-auto text-center pt-20">
         <div className="article leading-relaxed sm:leading-relaxed text-lg sm:text-xl text-left text-gray-800">{render(blok.long_text, options)}</div>
       </div>
@@ -69,6 +85,4 @@ const Article = ({ blok, story, categories }) => {
   );
 };
 
-export default Article;
-
-
+export default SliderArticle;
