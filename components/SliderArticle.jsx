@@ -13,10 +13,8 @@ const SliderArticle = ({ blok, story, categories }) => {
   const catCloud = categories.filter((category) => {
     return blok.topic.includes(category.uuid)
   })
-
   const date = new Date(story.first_published_at);
   const dateFormat = new Intl.DateTimeFormat("hr");
-
   const options = {
     markResolvers: {
       [MARK_LINK]: (node, { _, href }) => {
@@ -71,7 +69,8 @@ const SliderArticle = ({ blok, story, categories }) => {
       }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="max-w-3xl mx-auto mt-20">
+        className="max-w-3xl mx-auto mt-20"
+        style={{ "--swiper-theme-color": "#5BA1E5" }}>
         {blok.slider_items.map((item, idx) => (
           <SwiperSlide key={idx} className="w-full">
             <img src={item.filename} alt={`${story.name} ${String(idx + 1).padStart(2, '0')}`} />
