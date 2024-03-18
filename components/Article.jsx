@@ -56,7 +56,7 @@ const Article = ({ blok, story, categories }) => {
               {idx > 0 && " | "}<Link href={cat.full_slug}><a className="hover:text-[#b1d2f5] transition-all duration-300 ease-in-out">{cat.name.toUpperCase()}</a></Link>
             </Fragment>))}</div>
           <div className="flex items-end flex-wrap gap-12">
-            <div className="font-medium italic text-xl md:text-2xl basis-80 grow">{render(blok.intro)}</div>
+            <div className="teaser font-medium italic text-xl md:text-2xl basis-80 grow">{render(blok.intro)}</div>
             <div className="grow basis-80"><img src={blok.image} alt={story.name} /></div>
           </div>
         </div>

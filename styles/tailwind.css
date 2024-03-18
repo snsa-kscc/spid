@@ -127,12 +127,14 @@ a:hover::after {
   }
 }
 
-.article a {
+.article a,
+.teaser a {
   box-shadow: inset 0 -0.175em white, inset 0 -0.45em #b1d2f5;
   transition: all 300ms ease-in-out;
 }
 
-.article a:hover {
+.article a:hover,
+.teaser a:hover {
   box-shadow: inset 0 -0.175em white, inset 0 -0.45em #5ba1e5;
 }
 
