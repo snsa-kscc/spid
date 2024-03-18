@@ -71,7 +71,7 @@ const SliderArticle = ({ blok, story, categories }) => {
         modules={[Pagination, Navigation]}
         className="max-w-3xl mx-auto mt-20"
         style={{ "--swiper-theme-color": "#5BA1E5" }}>
-        {blok.slider_items.map((item, idx) => (
+        {blok.slider_objects.map((item, idx) => (
           <SwiperSlide key={idx} className="w-full">
             <img src={item.filename} alt={`${story.name} ${String(idx + 1).padStart(2, '0')}`} />
           </SwiperSlide>
